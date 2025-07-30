@@ -5,6 +5,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 interface SymbolModalProps {
   title: string;
@@ -14,9 +16,14 @@ interface SymbolModalProps {
   detailedContent: string;
   image?: string;
   audio?: string;
+  downloadFiles?: Array<{
+    url: string;
+    label: string;
+    filename: string;
+  }>;
 }
 
-const SymbolModal = ({ title, description, icon, children, detailedContent, image, audio }: SymbolModalProps) => {
+const SymbolModal = ({ title, description, icon, children, detailedContent, image, audio, downloadFiles }: SymbolModalProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -50,6 +57,49 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
           <div className="bg-muted p-6 rounded-lg">
             <p className="leading-relaxed whitespace-pre-line">{detailedContent}</p>
           </div>
+          
+          {downloadFiles && downloadFiles.length > 0 && (
+            <div className="mt-6 flex justify-center gap-3 flex-wrap">
+              {downloadFiles.map((file, index) => (
+                <Button 
+                  key={index}
+                  variant="hero"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = file.url;
+                    link.download = file.filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="flex items-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  {file.label}
+                </Button>
+              ))}
+            </div>
+          )}
+          
+          {!downloadFiles && (image || audio) && (
+            <div className="mt-6 flex justify-center">
+              <Button 
+                variant="hero"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = image || audio || '';
+                  link.download = image ? `${title.toLowerCase().replace(/\s+/g, '-')}.png` : `${title.toLowerCase().replace(/\s+/g, '-')}.mp3`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Завантажити файл
+              </Button>
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>
