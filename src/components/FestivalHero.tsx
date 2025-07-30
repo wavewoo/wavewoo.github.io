@@ -22,18 +22,29 @@ const FestivalHero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <div className="relative mx-auto mb-6 w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px]">
-            <img 
-              src={heroEmblem}
-              alt="Емблема Республіки Вейву"
-              className="w-full h-full mx-auto drop-shadow-lg"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                maskComposite: 'intersect',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                WebkitMaskComposite: 'source-in'
-              }}
-            />
+          <div className="relative mx-auto mb-6 w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px] group">
+            {/* Soft glow effect background */}
+            <div className="absolute inset-0 bg-gradient-radial from-white/15 via-white/5 to-transparent rounded-full blur-2xl scale-125 opacity-50 group-hover:opacity-70 group-hover:scale-140 transition-all duration-1000"></div>
+            
+            {/* Main emblem */}
+            <div className="relative w-full h-full">
+              <img 
+                src={heroEmblem}
+                alt="Емблема Республіки Вейву"
+                className="w-full h-full mx-auto filter drop-shadow-lg group-hover:drop-shadow-2xl group-hover:scale-105 transition-all duration-700 ease-out rounded-full object-cover hue-rotate-15 saturate-150"
+                style={{
+                  maskImage: 'radial-gradient(circle at center, black 40%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,0.2) 85%, transparent 95%)',
+                  WebkitMaskImage: 'radial-gradient(circle at center, black 40%, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,0.2) 85%, transparent 95%)'
+                }}
+              />
+              
+              {/* Subtle particle effect */}
+              <div className="absolute inset-0 rounded-full">
+                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+                <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+                <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+              </div>
+            </div>
           </div>
         </div>
         

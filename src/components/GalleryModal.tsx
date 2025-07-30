@@ -68,7 +68,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
         </DialogHeader>
         <div className="mt-6">
           <p className="text-muted-foreground mb-6">
-            Найкращі моменти фестивалю "Республіка Вейву" {year} року
+            Вибрані фото з Республіки {year} року
           </p>
           
           {hasPhotos ? (
@@ -126,7 +126,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              className="absolute top-14 right-14 z-10 bg-black/50 text-white p-4 rounded-full hover:bg-black/70 transition-colors"
             >
               <X size={24} />
             </button>
@@ -138,7 +138,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                   e.stopPropagation();
                   prevPhoto();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-4 rounded-full hover:bg-black/70 transition-colors"
               >
                 <ChevronLeft size={24} />
               </button>
@@ -150,7 +150,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                   e.stopPropagation();
                   nextPhoto();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-4 rounded-full hover:bg-black/70 transition-colors"
               >
                 <ChevronRight size={24} />
               </button>
@@ -167,13 +167,13 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
             />
 
             {/* Image counter and caption */}
-            <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white transition-opacity duration-300 ${
+            <div className={`absolute bottom-16 left-1/2 -translate-x-1/2 text-center text-white transition-opacity duration-300 ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}>
-              <p className="text-sm bg-black/50 px-3 py-1 rounded-full mb-2">
+              <p className="text-base bg-black/50 px-3 py-1 rounded-full mb-2">
                 {selectedPhoto + 1} / {photos.length}
               </p>
-              <p className="text-sm bg-black/50 px-3 py-1 rounded">
+              <p className="text-base bg-black/50 px-3 py-1 rounded">
                 {photos[selectedPhoto].alt}
               </p>
             </div>

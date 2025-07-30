@@ -48,7 +48,7 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
           )}
           
           <div className="bg-muted p-6 rounded-lg">
-            <p className="leading-relaxed">{detailedContent}</p>
+            <p className="leading-relaxed whitespace-pre-line">{detailedContent}</p>
           </div>
         </div>
       </DialogContent>

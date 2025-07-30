@@ -9,7 +9,8 @@ const FestivalNavigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationItems = [
-    { label: 'Про фестиваль', id: 'about' },
+    { label: 'Про Республіку', id: 'about' },
+    { label: 'Конституція', id: 'constitution' },
     { label: 'Міністерства', id: 'ministries' },
     { label: 'Державні символи', id: 'symbols' },
     { label: 'Галерея', id: 'gallery' },
