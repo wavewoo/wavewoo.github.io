@@ -12,9 +12,11 @@ interface SymbolModalProps {
   icon: string;
   children: React.ReactNode;
   detailedContent: string;
+  image?: string;
+  audio?: string;
 }
 
-const SymbolModal = ({ title, description, icon, children, detailedContent }: SymbolModalProps) => {
+const SymbolModal = ({ title, description, icon, children, detailedContent, image, audio }: SymbolModalProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -29,6 +31,22 @@ const SymbolModal = ({ title, description, icon, children, detailedContent }: Sy
         </DialogHeader>
         <div className="mt-6">
           <p className="text-muted-foreground mb-4 text-lg">{description}</p>
+          
+          {image && (
+            <div className="mb-6 text-center">
+              <img src={image} alt={title} className="max-w-sm mx-auto rounded-lg shadow-lg" />
+            </div>
+          )}
+          
+          {audio && (
+            <div className="mb-6">
+              <audio controls className="w-full">
+                <source src={audio} type="audio/mpeg" />
+                Ваш браузер не підтримує відтворення аудіо.
+              </audio>
+            </div>
+          )}
+          
           <div className="bg-muted p-6 rounded-lg">
             <p className="leading-relaxed">{detailedContent}</p>
           </div>

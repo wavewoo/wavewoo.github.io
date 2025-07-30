@@ -25,7 +25,7 @@ const FestivalHero = () => {
           <img 
             src={heroEmblem}
             alt="Емблема Республіки Вейву"
-            className="w-32 h-32 mx-auto mb-6 drop-shadow-lg"
+            className="w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px] mx-auto mb-6 drop-shadow-lg"
           />
         </div>
         
@@ -34,7 +34,7 @@ const FestivalHero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-festival-yellow mb-12 drop-shadow-md font-medium">
-          Найбільший культурний фестиваль України
+          Територія твоєї свободи
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
