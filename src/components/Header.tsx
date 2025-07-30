@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Menu, X } from "lucide-react";
+import { Music, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -8,8 +8,8 @@ const Header = () => {
   const navigation = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
+    { name: "Gallery", href: "#gallery" },
+    { name: "Lineup", href: "#lineup" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -19,8 +19,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Github className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-primary">DevPortfolio</span>
+            <Music className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-primary">Summer Vibes</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -39,7 +39,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="hero" size="default">
-              Get In Touch
+              Get Tickets
             </Button>
           </div>
 
@@ -70,7 +70,7 @@ const Header = () => {
                 </a>
               ))}
               <Button variant="hero" size="default" className="mt-4">
-                Get In Touch
+                Get Tickets
               </Button>
             </nav>
           </div>

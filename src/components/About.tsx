@@ -1,27 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Palette, Zap, Users } from "lucide-react";
+import { Music, Users, Utensils, MapPin } from "lucide-react";
 
 const About = () => {
   const features = [
     {
-      icon: Code,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable, and efficient code using best practices and modern patterns."
-    },
-    {
-      icon: Palette,
-      title: "UI/UX Design",
-      description: "Creating beautiful, intuitive interfaces that provide exceptional user experiences."
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description: "Optimizing applications for speed, efficiency, and seamless user interactions."
+      icon: Music,
+      title: "Amazing Lineup",
+      description: "World-class artists and emerging talents across multiple genres performing on multiple stages."
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description: "Working effectively in teams using Git, code reviews, and agile methodologies."
+      title: "Community",
+      description: "Join thousands of music lovers in a celebration of art, culture, and shared experiences."
+    },
+    {
+      icon: Utensils,
+      title: "Food & Drinks",
+      description: "Diverse culinary experiences with local vendors, food trucks, and signature festival cocktails."
+    },
+    {
+      icon: MapPin,
+      title: "Prime Location",
+      description: "Beautiful outdoor venue with stunning natural surroundings and state-of-the-art facilities."
     }
   ];
 
@@ -32,11 +32,11 @@ const About = () => {
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              About Me
+              About the Festival
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Passionate developer with a love for creating innovative digital solutions 
-              and contributing to the open-source community.
+              Summer Vibes Music Festival is more than just music - it's a celebration of creativity, 
+              community, and the power of live performance.
             </p>
           </div>
 
@@ -44,25 +44,24 @@ const About = () => {
             {/* Left Column - Description */}
             <div className="animate-slide-in">
               <h3 className="text-2xl font-semibold text-primary mb-6">
-                Building the Future with Code
+                Where Music Comes Alive
               </h3>
               <div className="space-y-4 text-foreground">
                 <p>
-                  I'm a dedicated software developer with expertise in modern web technologies 
-                  and a passion for creating impactful digital experiences. My journey started 
-                  with curiosity about how things work, which led me to pursue computer science 
-                  and eventually fall in love with programming.
+                  For over 5 years, Summer Vibes has been bringing together music enthusiasts 
+                  from around the world for an unforgettable weekend experience. What started 
+                  as a small gathering has grown into one of the region's most anticipated 
+                  music festivals.
                 </p>
                 <p>
-                  I believe in writing clean, maintainable code and staying up-to-date with 
-                  the latest industry trends. Whether it's building responsive web applications, 
-                  contributing to open-source projects, or mentoring fellow developers, I'm 
-                  always excited to take on new challenges.
+                  Our mission is to create a space where music transcends boundaries and brings 
+                  people together. From indie rock to electronic dance music, from folk to hip-hop, 
+                  we celebrate diversity in sound and create memories that last a lifetime.
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing 
-                  to the developer community, or working on personal projects that solve 
-                  real-world problems.
+                  Beyond the music, we're committed to sustainability, supporting local artists, 
+                  and giving back to our community. Join us for three days of pure musical magic 
+                  in a setting that feels like home.
                 </p>
               </div>
             </div>
