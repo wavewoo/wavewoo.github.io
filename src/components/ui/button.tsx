@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-medium",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -18,15 +18,15 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-medium hover:shadow-soft hover:scale-105 font-semibold",
-        gradient: "bg-accent-gradient text-accent-foreground hover:scale-105 shadow-medium font-semibold border-0",
+        // Festival themed variants
+        hero: "bg-festival-yellow text-festival-blue font-semibold hover:bg-festival-yellow-light transform hover:scale-105 shadow-lg hover:shadow-xl",
+        "hero-outline": "border-2 border-festival-yellow text-festival-yellow bg-transparent hover:bg-festival-yellow hover:text-festival-blue font-semibold transform hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
-        hero: "h-12 px-8 py-3 text-base",
       },
     },
     defaultVariants: {

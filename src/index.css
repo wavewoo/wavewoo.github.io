@@ -2,50 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Festival website design system - Yellow and Dark Blue theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Modern GitHub theme with yellow and dark blue */
-    --background: 250 250 250;
-    --foreground: 220 30% 15%;
+    --background: 0 0% 98%;
+    --foreground: 220 100% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 15%;
+    --card-foreground: 220 100% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 15%;
+    --popover-foreground: 220 100% 15%;
 
-    /* Dark blue primary */
-    --primary: 220 40% 20%;
-    --primary-foreground: 0 0% 100%;
+    /* Dark Blue Primary */
+    --primary: 220 100% 15%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Light blue secondary */
-    --secondary: 220 20% 95%;
-    --secondary-foreground: 220 40% 20%;
+    /* Yellow Secondary */
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 220 100% 15%;
 
-    --muted: 220 15% 96%;
-    --muted-foreground: 220 15% 50%;
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 30% 40%;
 
-    /* Bright yellow accent */
-    --accent: 48 100% 60%;
-    --accent-foreground: 220 40% 20%;
+    /* Yellow Accent */
+    --accent: 45 100% 60%;
+    --accent-foreground: 220 100% 15%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 95%;
-    --ring: 48 100% 60%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 220 100% 15%;
 
-    /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(220 60% 15%), hsl(230 70% 25%), hsl(240 50% 35%));
-    --accent-gradient: linear-gradient(135deg, hsl(48 100% 60%), hsl(45 100% 55%));
-    --shadow-soft: 0 4px 20px hsl(220 40% 20% / 0.1);
-    --shadow-medium: 0 8px 30px hsl(220 40% 20% / 0.15);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Custom festival design tokens */
+    --festival-blue: 220 100% 15%;
+    --festival-blue-light: 220 80% 25%;
+    --festival-yellow: 45 100% 60%;
+    --festival-yellow-light: 45 100% 70%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 15%) 0%, hsl(220 80% 25%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(45 100% 60%) 0%, hsl(45 100% 70%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(220 100% 15% / 0.1);
+    --shadow-hero: 0 10px 40px hsl(220 100% 15% / 0.3);
 
     --radius: 0.5rem;
 

@@ -52,6 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Festival theme colors
+				'festival-blue': 'hsl(var(--festival-blue))',
+				'festival-blue-light': 'hsl(var(--festival-blue-light))',
+				'festival-yellow': 'hsl(var(--festival-yellow))',
+				'festival-yellow-light': 'hsl(var(--festival-yellow-light))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,20 +72,6 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			},
-			backgroundImage: {
-				'hero-gradient': 'var(--hero-gradient)',
-				'accent-gradient': 'var(--accent-gradient)'
-			},
-			boxShadow: {
-				'soft': 'var(--shadow-soft)',
-				'medium': 'var(--shadow-medium)'
-			},
-			fontFamily: {
-				'montserrat': ['Montserrat', 'sans-serif'],
-			},
-			transitionTimingFunction: {
-				'smooth': 'var(--transition-smooth)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -98,33 +89,11 @@ export default {
 					to: {
 						height: '0'
 					}
-				},
-				'fade-up': {
-					from: {
-						opacity: '0',
-						transform: 'translateY(30px)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
-				},
-				'slide-in': {
-					from: {
-						opacity: '0',
-						transform: 'translateX(-20px)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'translateX(0)'
-					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-up': 'fade-up 0.6s ease-out',
-				'slide-in': 'slide-in 0.5s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
