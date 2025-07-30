@@ -76,6 +76,9 @@ export default {
 				'soft': 'var(--shadow-soft)',
 				'medium': 'var(--shadow-medium)'
 			},
+			fontFamily: {
+				'montserrat': ['Montserrat', 'sans-serif'],
+			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'
 			},

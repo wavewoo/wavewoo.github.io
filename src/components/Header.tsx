@@ -6,11 +6,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Lineup", href: "#lineup" },
-    { name: "Contact", href: "#contact" },
+    { name: "Головна", href: "#home" },
+    { name: "Про фестиваль", href: "#about" },
+    { name: "Галерея", href: "#gallery" },
+    { name: "Лайн-ап", href: "#lineup" },
+    { name: "Контакти", href: "#contact" },
   ];
 
   return (
@@ -20,7 +20,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <Music className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-primary">Summer Vibes</span>
+            <span className="text-xl font-bold text-primary font-montserrat">Республіка Вейву</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -29,7 +29,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
+                className="text-foreground hover:text-accent transition-colors duration-300 font-medium font-montserrat"
               >
                 {item.name}
               </a>
@@ -38,8 +38,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="default">
-              Get Tickets
+            <Button variant="hero" size="default" className="font-montserrat">
+              Квитки
             </Button>
           </div>
 
@@ -63,14 +63,14 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground hover:text-accent transition-colors duration-300 font-medium py-2"
+                  className="text-foreground hover:text-accent transition-colors duration-300 font-medium py-2 font-montserrat"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <Button variant="hero" size="default" className="mt-4">
-                Get Tickets
+              <Button variant="hero" size="default" className="mt-4 font-montserrat">
+                Квитки
               </Button>
             </nav>
           </div>

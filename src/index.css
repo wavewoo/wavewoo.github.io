@@ -41,7 +41,7 @@ All colors MUST be HSL.
     --ring: 48 100% 60%;
 
     /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(220 40% 20%), hsl(220 50% 30%));
+    --hero-gradient: linear-gradient(135deg, hsl(220 60% 15%), hsl(230 70% 25%), hsl(240 50% 35%));
     --accent-gradient: linear-gradient(135deg, hsl(48 100% 60%), hsl(45 100% 55%));
     --shadow-soft: 0 4px 20px hsl(220 40% 20% / 0.1);
     --shadow-medium: 0 8px 30px hsl(220 40% 20% / 0.15);

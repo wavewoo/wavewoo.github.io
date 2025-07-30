@@ -6,49 +6,49 @@ import { Github, ExternalLink, Star } from "lucide-react";
 const Projects = () => {
   const photos = [
     {
-      title: "Main Stage 2023",
-      description: "Electric atmosphere as headliner The Arctic Monkeys performed to a crowd of 15,000 festival-goers under the sunset sky.",
-      categories: ["Main Stage", "Headliners", "2023"],
+      title: "Головна Сцена 2023",
+      description: "Електрична атмосфера, коли хедлайнер Arctic Monkeys виступав перед натовпом з 15,000 відвідувачів під заходом сонця.",
+      categories: ["Головна Сцена", "Хедлайнери", "2023"],
       likes: 342,
       shares: 87,
       featured: true
     },
     {
-      title: "Acoustic Sessions",
-      description: "Intimate acoustic performances in our cozy woodland stage area, featuring emerging indie artists and singer-songwriters.",
-      categories: ["Acoustic", "Indie", "Intimate"],
+      title: "Акустичні Сесії",
+      description: "Інтимні акустичні виступи на нашій затишній лісовій сцені з новими інді-артистами та авторами-виконавцями.",
+      categories: ["Акустика", "Інді", "Інтимно"],
       likes: 156,
       shares: 43,
       featured: false
     },
     {
-      title: "Dance Floor Magic",
-      description: "The electronic tent came alive at midnight with pulsing beats and synchronized light shows that kept the crowd moving until dawn.",
-      categories: ["Electronic", "Night", "Dance"],
+      title: "Магія Танцполу",
+      description: "Електронний намет ожив опівночі з пульсуючими ритмами та синхронізованими світловими шоу до самого ранку.",
+      categories: ["Електронна", "Ніч", "Танці"],
       likes: 278,
       shares: 92,
       featured: true
     },
     {
-      title: "Festival Vibes",
-      description: "Colorful crowds enjoying the beautiful weather, food trucks, and the relaxed atmosphere that makes Summer Vibes special.",
-      categories: ["Crowd", "Atmosphere", "Lifestyle"],
+      title: "Атмосфера Фестивалю",
+      description: "Барвисті натовпи насолоджуються прекрасною погодою, фуд-траками та розслабленою атмосферою, що робить Республіку Вейву особливою.",
+      categories: ["Натовп", "Атмосфера", "Стиль життя"],
       likes: 198,
       shares: 64,
       featured: false
     },
     {
-      title: "Sunset Sessions",
-      description: "Golden hour performances with the backdrop of rolling hills created magical moments for both artists and audience.",
-      categories: ["Sunset", "Nature", "Magic"],
+      title: "Сесії на Заході",
+      description: "Виступи під час золотої години на тлі пагорбів створили магічні моменти як для артистів, так і для глядачів.",
+      categories: ["Захід", "Природа", "Магія"],
       likes: 425,
       shares: 128,
       featured: true
     },
     {
-      title: "Art Installations",
-      description: "Interactive art pieces scattered throughout the festival grounds provided Instagram-worthy moments and creative inspiration.",
-      categories: ["Art", "Interactive", "Creative"],
+      title: "Арт-Інсталяції",
+      description: "Інтерактивні арт-об'єкти, розкидані по території фестивалю, дарували Instagram-моменти та творче натхнення.",
+      categories: ["Мистецтво", "Інтерактивне", "Творчість"],
       likes: 167,
       shares: 55,
       featured: false
@@ -64,11 +64,11 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Festival Memories
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-montserrat">
+              Спогади Фестивалю
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Relive the magic through photos from our previous festivals and see what makes Summer Vibes unforgettable.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-montserrat">
+              Переживіть магію знову через фото з наших попередніх фестивалів та подивіться, що робить Республіку Вейву незабутньою.
             </p>
           </div>
 
@@ -78,11 +78,11 @@ const Projects = () => {
               <Card key={index} className="group hover:shadow-medium transition-all duration-300 hover:-translate-y-2">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <CardTitle className="text-xl text-primary group-hover:text-accent transition-colors duration-300">
+                    <CardTitle className="text-xl text-primary group-hover:text-accent transition-colors duration-300 font-montserrat">
                       {photo.title}
                     </CardTitle>
-                    <Badge variant="secondary" className="bg-accent/10 text-accent">
-                      Featured
+                    <Badge variant="secondary" className="bg-accent/10 text-accent font-montserrat">
+                      Рекомендовані
                     </Badge>
                   </div>
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ const Projects = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed font-montserrat">
                     {photo.description}
                   </p>
                   
@@ -110,13 +110,13 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex space-x-2">
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button size="sm" variant="outline" className="flex-1 font-montserrat">
                       <Star className="h-4 w-4 mr-2" />
-                      Like
+                      Подобається
                     </Button>
-                    <Button size="sm" variant="default" className="flex-1">
+                    <Button size="sm" variant="default" className="flex-1 font-montserrat">
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Share
+                      Поділитися
                     </Button>
                   </div>
                 </CardContent>
@@ -126,13 +126,13 @@ const Projects = () => {
 
           {/* Other Photos */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold text-primary mb-6">More Festival Moments</h3>
+            <h3 className="text-2xl font-semibold text-primary mb-6 font-montserrat">Більше Моментів Фестивалю</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {otherPhotos.map((photo, index) => (
                 <Card key={index} className="group hover:shadow-soft transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors duration-300">
+                      <h4 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors duration-300 font-montserrat">
                         {photo.title}
                       </h4>
                       <div className="flex items-center space-x-3 text-sm text-muted-foreground">
@@ -147,7 +147,7 @@ const Projects = () => {
                       </div>
                     </div>
                     
-                    <p className="text-muted-foreground text-sm mb-4">
+                    <p className="text-muted-foreground text-sm mb-4 font-montserrat">
                       {photo.description}
                     </p>
                     
@@ -160,13 +160,13 @@ const Projects = () => {
                     </div>
                     
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="ghost">
+                      <Button size="sm" variant="ghost" className="font-montserrat">
                         <Star className="h-4 w-4 mr-1" />
-                        Like
+                        Подобається
                       </Button>
-                      <Button size="sm" variant="ghost">
+                      <Button size="sm" variant="ghost" className="font-montserrat">
                         <ExternalLink className="h-4 w-4 mr-1" />
-                        Share
+                        Поділитися
                       </Button>
                     </div>
                   </CardContent>
@@ -177,9 +177,9 @@ const Projects = () => {
 
           {/* View More Button */}
           <div className="text-center">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="font-montserrat">
               <Github className="mr-2" />
-              View Full Photo Gallery
+              Переглянути Повну Галерею
             </Button>
           </div>
         </div>

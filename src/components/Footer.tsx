@@ -1,4 +1,4 @@
-import { Github, Heart } from "lucide-react";
+import { Music, Heart } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,26 +10,32 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Github className="h-8 w-8 text-accent" />
-              <span className="text-xl font-bold">DevPortfolio</span>
+              <Music className="h-8 w-8 text-accent" />
+              <span className="text-xl font-bold font-montserrat">Республіка Вейву</span>
             </div>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Passionate developer creating innovative solutions with modern technologies. 
-              Always learning, always building.
+            <p className="text-primary-foreground/80 text-sm leading-relaxed font-montserrat">
+              Музичний фестиваль, що об'єднує людей через любов до музики. 
+              Створюємо незабутні спогади разом.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 font-montserrat">Швидкі Посилання</h3>
             <ul className="space-y-2">
-              {["Home", "About", "Projects", "Skills", "Contact"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "Головна", href: "home" },
+                { name: "Про фестиваль", href: "about" },
+                { name: "Галерея", href: "gallery" },
+                { name: "Лайн-ап", href: "lineup" },
+                { name: "Контакти", href: "contact" }
+              ].map((item) => (
+                <li key={item.name}>
                   <a 
-                    href={`#${item.toLowerCase()}`}
-                    className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                    href={`#${item.href}`}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm font-montserrat"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -38,29 +44,29 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="text-lg font-semibold mb-4 font-montserrat">Зв'язок</h3>
             <div className="space-y-2">
               <a 
-                href="mailto:hello@developer.com"
-                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                href="mailto:info@republikaveyvu.com"
+                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm font-montserrat"
               >
-                hello@developer.com
+                info@republikaveyvu.com
               </a>
               <a 
-                href="https://github.com"
+                href="https://instagram.com/republikaveyvu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm font-montserrat"
               >
-                GitHub Profile
+                Instagram
               </a>
               <a 
-                href="https://linkedin.com"
+                href="https://facebook.com/republikaveyvu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                className="block text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm font-montserrat"
               >
-                LinkedIn Profile
+                Facebook
               </a>
             </div>
           </div>
@@ -69,12 +75,12 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center space-x-1 text-sm text-primary-foreground/80">
-            <span>© {currentYear} DevPortfolio. Made with</span>
+            <span className="font-montserrat">© {currentYear} Республіка Вейву. Створено з</span>
             <Heart className="h-4 w-4 text-accent fill-current" />
-            <span>by a passionate developer.</span>
+            <span className="font-montserrat">для музики та спільноти.</span>
           </div>
-          <div className="text-sm text-primary-foreground/60 mt-2 sm:mt-0">
-            Built with React & Tailwind CSS
+          <div className="text-sm text-primary-foreground/60 mt-2 sm:mt-0 font-montserrat">
+            Створено на React & Tailwind CSS
           </div>
         </div>
       </div>

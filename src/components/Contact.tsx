@@ -9,19 +9,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@developer.com",
-      link: "mailto:hello@developer.com"
+      value: "info@republikaveyvu.com",
+      link: "mailto:info@republikaveyvu.com"
     },
     {
       icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      title: "Телефон",
+      value: "+380 (44) 123-4567",
+      link: "tel:+380441234567"
     },
     {
       icon: MapPin,
-      title: "Location",
-      value: "San Francisco, CA",
+      title: "Локація",
+      value: "Київ, Україна",
       link: "#"
     }
   ];
@@ -29,21 +29,21 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: Github,
-      name: "GitHub",
-      url: "https://github.com",
-      username: "@developer"
+      name: "Instagram",
+      url: "https://instagram.com",
+      username: "@republikaveyvu"
     },
     {
       icon: Linkedin,
-      name: "LinkedIn",
-      url: "https://linkedin.com",
-      username: "@developer"
+      name: "Facebook",
+      url: "https://facebook.com",
+      username: "@republikaveyvu"
     },
     {
       icon: Twitter,
       name: "Twitter",
       url: "https://twitter.com",
-      username: "@developer"
+      username: "@republikaveyvu"
     }
   ];
 
@@ -53,12 +53,12 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Get In Touch
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-montserrat">
+              Зв'яжіться з Нами
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just having a chat about technology and development.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-montserrat">
+              Маєте питання про фестиваль? Хочете стати партнером? 
+              Або просто хочете дізнатися більше про Республіку Вейву?
             </p>
           </div>
 
@@ -66,54 +66,55 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="hover:shadow-medium transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">
-                  Send a Message
+                <CardTitle className="text-2xl text-primary font-montserrat">
+                  Надіслати Повідомлення
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        First Name
+                      <label className="text-sm font-medium text-foreground mb-2 block font-montserrat">
+                        Ім'я
                       </label>
-                      <Input placeholder="John" />
+                      <Input placeholder="Олександр" className="font-montserrat" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        Last Name
+                      <label className="text-sm font-medium text-foreground mb-2 block font-montserrat">
+                        Прізвище
                       </label>
-                      <Input placeholder="Doe" />
+                      <Input placeholder="Шевченко" className="font-montserrat" />
                     </div>
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
+                    <label className="text-sm font-medium text-foreground mb-2 block font-montserrat">
                       Email
                     </label>
-                    <Input type="email" placeholder="john@example.com" />
+                    <Input type="email" placeholder="oleksandr@example.com" className="font-montserrat" />
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Subject
+                    <label className="text-sm font-medium text-foreground mb-2 block font-montserrat">
+                      Тема
                     </label>
-                    <Input placeholder="Project Discussion" />
+                    <Input placeholder="Питання про фестиваль" className="font-montserrat" />
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Message
+                    <label className="text-sm font-medium text-foreground mb-2 block font-montserrat">
+                      Повідомлення
                     </label>
                     <Textarea 
-                      placeholder="Tell me about your project or just say hello!" 
+                      placeholder="Розкажіть про ваше питання або просто привітайтеся!" 
                       rows={5}
+                      className="font-montserrat"
                     />
                   </div>
                   
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button variant="hero" size="lg" className="w-full font-montserrat">
                     <Send className="mr-2" />
-                    Send Message
+                    Надіслати
                   </Button>
                 </form>
               </CardContent>
@@ -124,8 +125,8 @@ const Contact = () => {
               {/* Contact Details */}
               <Card className="hover:shadow-medium transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-primary">
-                    Contact Information
+                  <CardTitle className="text-2xl text-primary font-montserrat">
+                    Контактна Інформація
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -140,10 +141,10 @@ const Contact = () => {
                           <item.icon className="h-6 w-6 text-accent" />
                         </div>
                         <div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sm text-muted-foreground font-montserrat">
                             {item.title}
                           </div>
-                          <div className="font-medium text-foreground">
+                          <div className="font-medium text-foreground font-montserrat">
                             {item.value}
                           </div>
                         </div>
@@ -156,8 +157,8 @@ const Contact = () => {
               {/* Social Links */}
               <Card className="hover:shadow-medium transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-primary">
-                    Follow Me
+                  <CardTitle className="text-2xl text-primary font-montserrat">
+                    Слідкуйте за Нами
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -174,10 +175,10 @@ const Contact = () => {
                           <social.icon className="h-5 w-5 text-accent" />
                         </div>
                         <div>
-                          <div className="font-medium text-foreground">
+                          <div className="font-medium text-foreground font-montserrat">
                             {social.name}
                           </div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sm text-muted-foreground font-montserrat">
                             {social.username}
                           </div>
                         </div>

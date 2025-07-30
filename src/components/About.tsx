@@ -5,23 +5,23 @@ const About = () => {
   const features = [
     {
       icon: Music,
-      title: "Amazing Lineup",
-      description: "World-class artists and emerging talents across multiple genres performing on multiple stages."
+      title: "Неймовірний Лайн-ап",
+      description: "Артисти світового рівня та нові таланти різних жанрів виступатимуть на кількох сценах."
     },
     {
       icon: Users,
-      title: "Community",
-      description: "Join thousands of music lovers in a celebration of art, culture, and shared experiences."
+      title: "Спільнота",
+      description: "Приєднуйтесь до тисяч любителів музики у святкуванні мистецтва, культури та спільних переживань."
     },
     {
       icon: Utensils,
-      title: "Food & Drinks",
-      description: "Diverse culinary experiences with local vendors, food trucks, and signature festival cocktails."
+      title: "Їжа та Напої",
+      description: "Різноманітні кулінарні враження з місцевими продавцями, фуд-траками та фірмовими коктейлями."
     },
     {
       icon: MapPin,
-      title: "Prime Location",
-      description: "Beautiful outdoor venue with stunning natural surroundings and state-of-the-art facilities."
+      title: "Чудове Місце",
+      description: "Красива відкрита площадка з приголомшливим природним оточенням та сучасними зручностями."
     }
   ];
 
@@ -31,37 +31,36 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              About the Festival
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-montserrat">
+              Про Фестиваль
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Summer Vibes Music Festival is more than just music - it's a celebration of creativity, 
-              community, and the power of live performance.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-montserrat">
+              Музичний фестиваль "Республіка Вейву" - це більше ніж просто музика. Це свято творчості, 
+              спільноти та сили живого виконання.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Description */}
             <div className="animate-slide-in">
-              <h3 className="text-2xl font-semibold text-primary mb-6">
-                Where Music Comes Alive
+              <h3 className="text-2xl font-semibold text-primary mb-6 font-montserrat">
+                Де Музика Оживає
               </h3>
-              <div className="space-y-4 text-foreground">
+              <div className="space-y-4 text-foreground font-montserrat">
                 <p>
-                  For over 5 years, Summer Vibes has been bringing together music enthusiasts 
-                  from around the world for an unforgettable weekend experience. What started 
-                  as a small gathering has grown into one of the region's most anticipated 
-                  music festivals.
+                  Вже понад 5 років "Республіка Вейву" об'єднує любителів музики з усього світу 
+                  для незабутнього вікендного досвіду. Те, що почалося як невелике зібрання, 
+                  виросло в один з найбільш очікуваних музичних фестивалів регіону.
                 </p>
                 <p>
-                  Our mission is to create a space where music transcends boundaries and brings 
-                  people together. From indie rock to electronic dance music, from folk to hip-hop, 
-                  we celebrate diversity in sound and create memories that last a lifetime.
+                  Наша місія - створити простір, де музика долає кордони та об'єднує людей. 
+                  Від інді-року до електронної танцювальної музики, від фолку до хіп-хопу - 
+                  ми святкуємо різноманітність звучання та створюємо спогади на все життя.
                 </p>
                 <p>
-                  Beyond the music, we're committed to sustainability, supporting local artists, 
-                  and giving back to our community. Join us for three days of pure musical magic 
-                  in a setting that feels like home.
+                  Окрім музики, ми прагнемо сталого розвитку, підтримки місцевих артистів 
+                  та повернення боргу нашій спільноті. Приєднуйтесь до нас на три дні чистої 
+                  музичної магії в атмосфері, що відчувається як дім.
                 </p>
               </div>
             </div>
@@ -74,10 +73,10 @@ const About = () => {
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                       <feature.icon className="h-6 w-6 text-accent" />
                     </div>
-                    <h4 className="text-lg font-semibold text-primary mb-2">
+                    <h4 className="text-lg font-semibold text-primary mb-2 font-montserrat">
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground font-montserrat">
                       {feature.description}
                     </p>
                   </CardContent>
