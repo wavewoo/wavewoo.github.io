@@ -22,11 +22,19 @@ const FestivalHero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <img 
-            src={heroEmblem}
-            alt="Емблема Республіки Вейву"
-            className="w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px] mx-auto mb-6 drop-shadow-lg"
-          />
+          <div className="relative mx-auto mb-6 w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px]">
+            <img 
+              src={heroEmblem}
+              alt="Емблема Республіки Вейву"
+              className="w-full h-full mx-auto drop-shadow-lg"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                maskComposite: 'intersect',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                WebkitMaskComposite: 'source-in'
+              }}
+            />
+          </div>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-lg">
