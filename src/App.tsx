@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import FestivalDetails from "./pages/FestivalDetails";
 import NextFestival from "./pages/NextFestival";
+import FestivalStats from "./pages/FestivalStats";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/festival-details" element={<FestivalDetails />} />
           <Route path="/next-festival" element={<NextFestival />} />
+          <Route path="/festival-stats" element={<FestivalStats />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

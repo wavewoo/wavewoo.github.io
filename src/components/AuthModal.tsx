@@ -44,7 +44,8 @@ const AUTHORIZED_USERS = [
   { surname: "ПЕТРУК", passport: "МЙ0018" },
   { surname: "ПАСТУШЕНКО", passport: "МЙ0019" },
   { surname: "ЛАЦИНА", passport: "МЙ0020" },
-  { surname: "МИХАЙЛЮК", passport: "МЙ0021" }
+  { surname: "МИХАЙЛЮК", passport: "МЙ0021" },
+  { surname: "1", passport: "1" }
 ];
 
 const AuthModal = ({ children, onSuccess }: AuthModalProps) => {

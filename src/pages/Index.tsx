@@ -437,6 +437,24 @@ const Index = () => {
       </FestivalSection>
 
       {/* Footer */}
+      {/* Festival Statistics Section */}
+      <FestivalSection id="festival-stats" title="Детальна статистика Фестивалів" backgroundColor="muted">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="bg-white p-8 rounded-lg border-2 border-festival-blue/10 mb-8">
+            <h3 className="text-2xl font-bold text-festival-blue mb-4">
+              Населення, дати, місця, вибори
+            </h3>
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => navigate("/festival-stats")}
+            >
+              Переглянути статистику
+            </Button>
+          </div>
+        </div>
+      </FestivalSection>
+
       <footer className="bg-festival-blue text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-4">Республіка Вейву</h3>
