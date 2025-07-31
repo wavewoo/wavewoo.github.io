@@ -144,7 +144,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                   className="w-full max-w-xs"
                 >
                   <a 
-                    href="#" 
+                    href="https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center"
