@@ -1,23 +1,25 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, Users, Star, ArrowLeft } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/AuthModal";
 
 const NextFestival = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // Check if user should be redirected to auth
-  useEffect(() => {
-    // For now, we'll assume they need to authenticate
-    // This could be enhanced with actual session management
-  }, []);
+  const { isAuthenticated, loading } = useAuth();
 
   const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
+    // Authentication is now handled by the context
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-festival-blue via-festival-blue/90 to-festival-yellow/20 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     return (

@@ -8,13 +8,22 @@ import ConstitutionModal from "@/components/ConstitutionModal";
 import CitizenshipModal from "@/components/CitizenshipModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 import passportImage from "@/assets/festival-passport.png";
 import coatOfArms from "@/assets/coat-of-arms.png";
 import flagWeywu from "@/assets/flag-weywu.png";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { isAuthenticated, userProfile, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success("Ви вийшли з системи");
+  };
   
   const ministries = [
     {
@@ -183,6 +192,44 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* User Menu - either login button or user info */}
+      <div className="fixed top-4 right-4 z-[60] pointer-events-auto">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-3">
+          {isAuthenticated ? (
+            <div className="flex items-center gap-3">
+              <div className="text-white text-sm">
+                Вітаємо, <span className="font-semibold">{userProfile?.surname}</span>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => navigate('/cabinet')}
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 pointer-events-auto cursor-pointer"
+              >
+                Кабінет
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleSignOut}
+                className="bg-red-500/20 border-red-300/50 text-white hover:bg-red-500/30 pointer-events-auto cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+              </Button>
+            </div>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate('/auth')}
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 pointer-events-auto cursor-pointer"
+            >
+              Увійти
+            </Button>
+          )}
+        </div>
+      </div>
+
       <FestivalNavigation />
       <FestivalHero />
       

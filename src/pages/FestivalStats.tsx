@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import FestivalSection from "@/components/FestivalSection";
 import AuthModal from "@/components/AuthModal";
 import {
@@ -17,7 +18,7 @@ import PresidentsTable from "@/components/PresidentsTable";
 
 const FestivalStats = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, loading } = useAuth();
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -102,13 +103,21 @@ const FestivalStats = () => {
   }, []);
 
   const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
+    // Authentication is now handled by the context
   };
 
   const openStatModal = (year: number) => {
     setSelectedYear(year);
     setIsModalOpen(true);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-festival-blue via-festival-blue/90 to-festival-yellow/20 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     return (
