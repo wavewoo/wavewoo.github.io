@@ -1,9 +1,14 @@
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import FestivalSection from "@/components/FestivalSection";
 
 const FestivalDetails = () => {
   const navigate = useNavigate();
+
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -15,9 +20,9 @@ const FestivalDetails = () => {
             onClick={() => navigate("/")}
             className="text-white hover:text-festival-yellow"
           >
-            ← Повернутися на головну
+            ← Назад
           </Button>
-          <h1 className="text-2xl font-bold">Детально про фестиваль</h1>
+          <h1 className="text-2xl font-bold">Детально про Вейву</h1>
         </div>
       </header>
 
