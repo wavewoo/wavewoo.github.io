@@ -42,7 +42,6 @@ import festival2017_1 from "@/assets/gallery/2017/1.jpg";
 import festival2017_2 from "@/assets/gallery/2017/2.jpg";
 import festival2017_3 from "@/assets/gallery/2017/3.jpg";
 import festival2017_4 from "@/assets/gallery/2017/4.jpg";
-import festival2017_5 from "@/assets/gallery/2017/5.jpg";
 
 // 2018 Photos
 import festival2018_1 from "@/assets/gallery/2018/1.jpg";
@@ -53,6 +52,7 @@ import festival2019_1 from "@/assets/gallery/2019/1.jpg";
 import festival2019_2 from "@/assets/gallery/2019/2.jpg";
 import festival2019_3 from "@/assets/gallery/2019/3.jpg";
 import festival2019_4 from "@/assets/gallery/2019/4.jpg";
+import festival2019_5 from "@/assets/gallery/2019/5.jpg";
 
 // 2020 Photos
 import festival2020_1 from "@/assets/gallery/2020/1.jpg";
@@ -117,7 +117,6 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 2, src: festival2017_2, alt: "Вечірній концерт з вогняним шоу" },
     { id: 3, src: festival2017_3, alt: "Фольклорний гурт на сцені" },
     { id: 4, src: festival2017_4, alt: "Арт-інсталяція на фестивалі" },
-    { id: 5, src: festival2017_5, alt: "Музиканти на сцені" },
   ],
   2018: [
     { id: 1, src: festival2018_1, alt: "Фестиваль у повному розпалі" },
@@ -128,6 +127,7 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 2, src: festival2019_2, alt: "Вечірній концерт з вогняним шоу" },
     { id: 3, src: festival2019_3, alt: "Фольклорний гурт на сцені" },
     { id: 4, src: festival2019_4, alt: "Арт-інсталяція на фестивалі" },
+    { id: 5, src: festival2019_5, alt: "Музиканти на сцені" },
   ],
   2020: [
     { id: 1, src: festival2020_1, alt: "Фестиваль у повному розпалі" },
