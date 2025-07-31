@@ -29,7 +29,7 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-4 text-2xl text-festival-blue">
             <span className="text-4xl">{icon}</span>
