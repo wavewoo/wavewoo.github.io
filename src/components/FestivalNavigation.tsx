@@ -10,6 +10,7 @@ const FestivalNavigation = () => {
 
   const navigationItems = [
     { label: 'Про Республіку', id: 'about' },
+    { label: 'Наступний Фестиваль', id: 'next-festival' },
     { label: 'Конституція', id: 'constitution' },
     { label: 'Міністерства', id: 'ministries' },
     { label: 'Державні символи', id: 'symbols' },

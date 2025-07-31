@@ -39,7 +39,12 @@ const AUTHORIZED_USERS = [
   { surname: "КРИВАНЧИК", passport: "МЙ0012" },
   { surname: "МАТКІВСЬКА", passport: "МЙ0013" },
   { surname: "ПАГУТА", passport: "МЙ0014" },
-  { surname: "СОПОТНИЦЬКА", passport: "МЙ0016" }
+  { surname: "СОПОТНИЦЬКА", passport: "МЙ0016" },
+  { surname: "ХОРОШУЛІНА", passport: "МЙ0017" },
+  { surname: "ПЕТРУК", passport: "МЙ0018" },
+  { surname: "ПАСТУШЕНКО", passport: "МЙ0019" },
+  { surname: "ЛАЦИНА", passport: "МЙ0020" },
+  { surname: "МИХАЙЛЮК", passport: "МЙ0021" }
 ];
 
 const AuthModal = ({ children, onSuccess }: AuthModalProps) => {
@@ -69,7 +74,7 @@ const AuthModal = ({ children, onSuccess }: AuthModalProps) => {
         onSuccess();
       } else {
         setIsLoading(false);
-        setError("Неправильні дані. Перевірте прізвище та номер паспорту.");
+        setError("Неправильні дані або паспорт недійсний.");
       }
     }, 1000);
   };
@@ -94,7 +99,7 @@ const AuthModal = ({ children, onSuccess }: AuthModalProps) => {
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3 text-xl text-festival-blue">
             <Lock className="w-6 h-6" />
-            Доступ до галереї
+            Доступ обмежено
           </DialogTitle>
         </DialogHeader>
         
@@ -104,8 +109,8 @@ const AuthModal = ({ children, onSuccess }: AuthModalProps) => {
               <AlertCircle className="w-5 h-5 text-festival-blue mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-sm text-muted-foreground">
-                  Доступ до повної галереї доступний лише громадянам Республіки. 
-                  Введіть ваше прізвище, як у паспорті (всі великі букви) та серію і номер паспорту (всі великі букви).
+                  Доступ до цієї сторінки відкритий лише громадянам Республіки. 
+                  Введіть ваше прізвище, як у паспорті (всі великі букви) та серію і номер паспорту (без пробілу, всі великі букви).
                 </p>
               </div>
             </div>

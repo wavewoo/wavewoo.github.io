@@ -126,10 +126,10 @@ const FestivalHero = () => {
           <Button 
             variant="hero-outline" 
             size="lg"
-            onClick={() => scrollToSection('constitution')}
+            onClick={() => scrollToSection('next-festival')}
             className="text-lg px-8 py-4 min-w-[200px]"
           >
-            Конституція
+            Наступний фестиваль
           </Button>
         </div>
       </div>

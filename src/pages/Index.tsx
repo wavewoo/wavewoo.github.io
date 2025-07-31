@@ -229,6 +229,34 @@ const Index = () => {
         </div>
       </FestivalSection>
 
+      {/* Next Festival Section */}
+      <FestivalSection id="next-festival" title="Наступний фестиваль">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Готуйтеся до наступного фестивалю! Детальна інформація для громадян Республіки доступна 
+            за посиланням нижче.
+          </p>
+          
+          <div className="bg-white p-8 rounded-lg border-2 border-festival-blue/10 mb-8">
+            <div className="text-6xl text-festival-blue mb-6">🌲🍖🍻</div>
+            <h3 className="text-2xl font-bold text-festival-blue mb-4">
+              Республіка Вейву 2026
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Інформація про дати, локацію та інші важливі оголошення тут:
+            </p>
+            
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => navigate("/next-festival")}
+            >
+              Детальна інформація
+            </Button>
+          </div>
+        </div>
+      </FestivalSection>
+
       {/* Constitution Section */}
       <FestivalSection id="constitution" title="Конституція" backgroundColor="muted">
         <div className="max-w-3xl mx-auto text-center">
