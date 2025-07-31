@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { getPhotosForYear, hasPhotosForYear } from "@/data/galleryData";
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import AuthModal from "./AuthModal";
 
 interface GalleryModalProps {
   year: number;
@@ -20,6 +21,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
   const hasPhotos = hasPhotosForYear(year);
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {
@@ -101,6 +103,16 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
     if (e.key === 'ArrowLeft') prevPhoto();
   };
 
+  const handleAuthSuccess = () => {
+    setIsAuthenticated(true);
+    // Open the link after successful authentication
+    window.open(
+      "https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -138,20 +150,23 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                 <p className="text-sm text-muted-foreground">
                   Клікніть на фото для перегляду у повному розмірі
                 </p>
-                <Button 
-                  variant="outline" 
-                  asChild
-                  className="w-full max-w-xs"
-                >
-                  <a 
-                    href="https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center"
+                
+                <AuthModal onSuccess={handleAuthSuccess}>
+                  <Button 
+                    variant="outline" 
+                    className="w-full max-w-xs"
                   >
-                    Перейди то всіх фотографій
-                  </a>
-                </Button>
+                    Перейти до всіх фотографій
+                  </Button>
+                </AuthModal>
+                
+                {isAuthenticated && (
+                  <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-sm text-green-700">
+                      ✓ Авторизація пройдена успішно! Посилання відкрито в новій вкладці.
+                    </p>
+                  </div>
+                )}
               </div>
             </>
           ) : (
