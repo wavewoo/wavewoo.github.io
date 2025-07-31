@@ -160,15 +160,6 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
               <p className="text-lg text-muted-foreground mb-4">
                 Фотографії з {year} року будуть додані незабаром
               </p>
-              <p className="text-sm text-muted-foreground">
-                Щоб додати власні фото:
-                <br />
-                1. Створіть папку <code className="bg-muted px-1 rounded">src/assets/gallery/{year}/</code>
-                <br />
-                2. Додайте фото у форматі JPG/PNG
-                <br />
-                3. Оновіть файл <code className="bg-muted px-1 rounded">src/data/galleryData.ts</code>
-              </p>
             </div>
           )}
         </div>

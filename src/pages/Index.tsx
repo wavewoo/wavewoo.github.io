@@ -321,7 +321,8 @@ const Index = () => {
       <FestivalSection id="ministries" title="Міністерства" backgroundColor="muted">
         <p className="text-lg text-muted-foreground text-center mb-6 leading-relaxed">
                 Життя у Республіці - це не тільки права, а й обов'язки. 
-                На щастя, тут кожен може знайти своє місце.
+                На щастя, тут кожен може знайти своє місце.<br />
+                Зверніть увагу, що перелік міністерств не є вичерпним. Зверніться до органів влади у випадку наявності питань.
               </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ministries.map((ministry, index) => (

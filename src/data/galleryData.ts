@@ -53,6 +53,7 @@ import festival2019_2 from "@/assets/gallery/2019/2.jpg";
 import festival2019_3 from "@/assets/gallery/2019/3.jpg";
 import festival2019_4 from "@/assets/gallery/2019/4.jpg";
 import festival2019_5 from "@/assets/gallery/2019/5.jpg";
+import festival2019_6 from "@/assets/gallery/2019/6.jpg";
 
 // 2020 Photos
 import festival2020_1 from "@/assets/gallery/2020/1.jpg";
@@ -63,6 +64,54 @@ import festival2020_5 from "@/assets/gallery/2020/5.jpg";
 import festival2020_6 from "@/assets/gallery/2020/6.jpg";
 import festival2020_7 from "@/assets/gallery/2020/7.jpg";
 import festival2020_8 from "@/assets/gallery/2020/8.jpg";
+
+// 2021 Photos
+import festival2021_1 from "@/assets/gallery/2021/1.jpg";
+import festival2021_2 from "@/assets/gallery/2021/2.jpg";
+import festival2021_3 from "@/assets/gallery/2021/3.jpg";
+import festival2021_4 from "@/assets/gallery/2021/4.jpg";
+import festival2021_5 from "@/assets/gallery/2021/5.jpg";
+import festival2021_6 from "@/assets/gallery/2021/6.jpg";
+import festival2021_7 from "@/assets/gallery/2021/7.jpg";
+import festival2021_8 from "@/assets/gallery/2021/8.jpg";
+import festival2021_9 from "@/assets/gallery/2021/9.jpg";
+import festival2021_10 from "@/assets/gallery/2021/10.jpg";
+import festival2021_11 from "@/assets/gallery/2021/11.jpg";
+import festival2021_12 from "@/assets/gallery/2021/12.jpg";
+
+// 2022 Photos
+import festival2022_1 from "@/assets/gallery/2022/1.jpg";
+import festival2022_2 from "@/assets/gallery/2022/2.jpg";
+import festival2022_3 from "@/assets/gallery/2022/3.jpg";
+import festival2022_4 from "@/assets/gallery/2022/4.jpg";
+import festival2022_5 from "@/assets/gallery/2022/5.jpeg";
+import festival2022_6 from "@/assets/gallery/2022/6.jpg";
+import festival2022_7 from "@/assets/gallery/2022/7.jpg";
+import festival2022_8 from "@/assets/gallery/2022/8.jpg";
+import festival2022_9 from "@/assets/gallery/2022/9.jpg";
+import festival2022_10 from "@/assets/gallery/2022/10.jpg";
+import festival2022_11 from "@/assets/gallery/2022/11.jpg";
+
+// 2023 Photos
+import festival2023_1 from "@/assets/gallery/2023/1.jpg";
+import festival2023_2 from "@/assets/gallery/2023/2.jpg";
+import festival2023_3 from "@/assets/gallery/2023/3.jpg";
+import festival2023_4 from "@/assets/gallery/2023/4.jpg";
+import festival2023_5 from "@/assets/gallery/2023/5.jpg";
+import festival2023_6 from "@/assets/gallery/2023/6.jpg";
+import festival2023_7 from "@/assets/gallery/2023/7.jpg";
+import festival2023_8 from "@/assets/gallery/2023/8.jpg";
+import festival2023_9 from "@/assets/gallery/2023/9.jpg";
+import festival2023_10 from "@/assets/gallery/2023/10.jpg";
+
+// 2024 Photos
+import festival2024_1 from "@/assets/gallery/2024/1.jpg";
+import festival2024_2 from "@/assets/gallery/2024/2.jpg";
+import festival2024_3 from "@/assets/gallery/2024/3.jpg";
+import festival2024_4 from "@/assets/gallery/2024/4.jpg";
+import festival2024_5 from "@/assets/gallery/2024/5.jpg";
+import festival2024_6 from "@/assets/gallery/2024/6.jpg";
+import festival2024_7 from "@/assets/gallery/2024/7.jpg";
 
 export interface GalleryPhoto {
   id: number;
@@ -128,6 +177,7 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 3, src: festival2019_3, alt: "Фольклорний гурт на сцені" },
     { id: 4, src: festival2019_4, alt: "Арт-інсталяція на фестивалі" },
     { id: 5, src: festival2019_5, alt: "Музиканти на сцені" },
+    { id: 6, src: festival2019_6, alt: "Фестиваль у повному розпалі" },
   ],
   2020: [
     { id: 1, src: festival2020_1, alt: "Фестиваль у повному розпалі" },
@@ -139,7 +189,54 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 7, src: festival2020_7, alt: "Вечірній концерт з вогняним шоу" },
     { id: 8, src: festival2020_8, alt: "Фольклорний гурт на сцені" },
   ],
-  // Just create folders like: src/assets/gallery/2017/, src/assets/gallery/2018/, etc.
+  2021: [
+    { id: 1, src: festival2021_1, alt: "Фестиваль у повному розпалі" },
+    { id: 2, src: festival2021_2, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 3, src: festival2021_3, alt: "Фольклорний гурт на сцені" },
+    { id: 4, src: festival2021_4, alt: "Арт-інсталяція на фестивалі" },
+    { id: 5, src: festival2021_5, alt: "Музиканти на сцені" },
+    { id: 6, src: festival2021_6, alt: "Фестиваль у повному розпалі" },
+    { id: 7, src: festival2021_7, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 8, src: festival2021_8, alt: "Фольклорний гурт на сцені" },
+    { id: 9, src: festival2021_9, alt: "Арт-інсталяція на фестивалі" },
+    { id: 10, src: festival2021_10, alt: "Музиканти на сцені" },
+    { id: 11, src: festival2021_11, alt: "Фестиваль у повному розпалі" },
+    { id: 12, src: festival2021_12, alt: "Вечірній концерт з вогняним шоу" },
+  ],
+  2022: [
+    { id: 1, src: festival2022_1, alt: "Фестиваль у повному розпалі" },
+    { id: 2, src: festival2022_2, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 3, src: festival2022_3, alt: "Фольклорний гурт на сцені" },
+    { id: 4, src: festival2022_4, alt: "Арт-інсталяція на фестивалі" },
+    { id: 5, src: festival2022_5, alt: "Музиканти на сцені" },
+    { id: 6, src: festival2022_6, alt: "Фестиваль у повному розпалі" },
+    { id: 7, src: festival2022_7, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 8, src: festival2022_8, alt: "Фольклорний гурт на сцені" },
+    { id: 9, src: festival2022_9, alt: "Арт-інсталяція на фестивалі" },
+    { id: 10, src: festival2022_10, alt: "Музиканти на сцені" },
+    { id: 11, src: festival2022_11, alt: "Фестиваль у повному розпалі" },
+  ],
+  2023: [
+    { id: 1, src: festival2023_1, alt: "Фестиваль у повному розпалі" },
+    { id: 2, src: festival2023_2, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 3, src: festival2023_3, alt: "Фольклорний гурт на сцені" },
+    { id: 4, src: festival2023_4, alt: "Арт-інсталяція на фестивалі" },
+    { id: 5, src: festival2023_5, alt: "Музиканти на сцені" },
+    { id: 6, src: festival2023_6, alt: "Фестиваль у повному розпалі" },
+    { id: 7, src: festival2023_7, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 8, src: festival2023_8, alt: "Фольклорний гурт на сцені" },
+    { id: 9, src: festival2023_9, alt: "Арт-інсталяція на фестивалі" },
+    { id: 10, src: festival2023_10, alt: "Музиканти на сцені" },
+  ],
+  2024: [
+    { id: 1, src: festival2024_1, alt: "Фестиваль у повному розпалі" },
+    { id: 2, src: festival2024_2, alt: "Вечірній концерт з вогняним шоу" },
+    { id: 3, src: festival2024_3, alt: "Фольклорний гурт на сцені" },
+    { id: 4, src: festival2024_4, alt: "Арт-інсталяція на фестивалі" },
+    { id: 5, src: festival2024_5, alt: "Музиканти на сцені" },
+    { id: 6, src: festival2024_6, alt: "Фестиваль у повному розпалі" },
+    { id: 7, src: festival2024_7, alt: "Вечірній концерт з вогняним шоу" },
+  ],
 };
 
 // Helper function to get photos for a specific year
