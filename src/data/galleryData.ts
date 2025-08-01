@@ -113,6 +113,20 @@ import festival2024_5 from "@/assets/gallery/2024/5.jpg";
 import festival2024_6 from "@/assets/gallery/2024/6.jpg";
 import festival2024_7 from "@/assets/gallery/2024/7.jpg";
 
+// 2025  Photos
+import festival2025_1 from "@/assets/gallery/2025/1.jpg";
+import festival2025_2 from "@/assets/gallery/2025/2.jpg";
+import festival2025_3 from "@/assets/gallery/2025/3.jpg";
+import festival2025_4 from "@/assets/gallery/2025/4.jpg";
+import festival2025_5 from "@/assets/gallery/2025/5.jpg";
+import festival2025_6 from "@/assets/gallery/2025/6.jpg";
+import festival2025_7 from "@/assets/gallery/2025/7.jpg";
+import festival2025_8 from "@/assets/gallery/2025/8.jpg";
+import festival2025_9 from "@/assets/gallery/2025/9.jpg";
+import festival2025_10 from "@/assets/gallery/2025/10.jpg";
+import festival2025_11 from "@/assets/gallery/2025/11.jpg";
+import festival2025_12 from "@/assets/gallery/2025/12.jpg";
+
 export interface GalleryPhoto {
   id: number;
   src: string;
@@ -236,6 +250,20 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 5, src: festival2024_5, alt: "Гамак-чіл-зона" },
     { id: 6, src: festival2024_6, alt: "Брендовані представники міністерства енергетики" },
     { id: 7, src: festival2024_7, alt: "Марки програми \"Пошта Республіки Вейву\"" },
+  ],
+  2025: [
+    { id: 1, src: festival2025_1, alt: "Дорожній вказівник до Республіки" },
+    { id: 2, src: festival2025_2, alt: "Президент Республіки з третім прапором Республіки" },
+    { id: 3, src: festival2025_3, alt: "Жителі готуються до церемонії відкриття Фестивалю" },
+    { id: 4, src: festival2025_4, alt: "Продовольче забезпечення" },
+    { id: 5, src: festival2025_5, alt: "Місце проведення Фестивалю" },
+    { id: 6, src: festival2025_6, alt: "Міністр енергетики працює над забезпеченням Республіки" },
+    { id: 7, src: festival2025_7, alt: "Президентські дебати перед виборами" },
+    { id: 8, src: festival2025_8, alt: "Театральна постановка \"Ранкова йога\"" },
+    { id: 9, src: festival2025_9, alt: "Праця на благо Республіки" },
+    { id: 10, src: festival2025_10, alt: "Прикордонний контроль" },
+    { id: 11, src: festival2025_11, alt: "Вечірня атмосфера" },
+    { id: 12, src: festival2025_12, alt: "Жителі Республіки"}
   ],
 };
 

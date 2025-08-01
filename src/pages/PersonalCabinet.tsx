@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
-import { User, LogOut, Home, Shield, Calendar, FileText, Award } from 'lucide-react';
+import { User, LogOut, Home, Shield, Calendar, FileText, Award, Camera } from 'lucide-react';
 import { getUserDetails } from '@/lib/supabase';
+// Import the passport photos data
+import { getPassportPhoto } from '@/data/passportPhotos';
 
 const PersonalCabinet = () => {
   const { user, userProfile, signOut, loading } = useAuth();
@@ -21,6 +23,10 @@ const PersonalCabinet = () => {
   // Get additional user details
   const additionalUserInfo = userProfile ? 
     getUserDetails(userProfile?.surname, userProfile?.passport) : null;
+
+  // Get user's passport photo
+  const passportPhoto = userProfile ? 
+    getPassportPhoto(userProfile.passport) : null;
 
   const handleSignOut = async () => {
     await signOut();
@@ -82,7 +88,26 @@ const PersonalCabinet = () => {
             <CardHeader>
               <CardTitle className="text-white text-xl">Ваш електронний паспорт:</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-6">
+              {/* Photo Section */}
+              <div className="flex justify-left mb-6">
+                <div className="relative">
+                  <div className="w-32 h-32 bg-white/10 border-2 border-white/30 rounded-lg overflow-hidden shadow-lg">
+                    {passportPhoto ? (
+                      <img 
+                        src={passportPhoto} 
+                        alt="Паспортне фото" 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Camera className="w-8 h-8 text-white/50" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Basic Information */}
                 <div>

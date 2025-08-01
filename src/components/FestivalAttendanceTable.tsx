@@ -43,7 +43,8 @@ const FestivalAttendanceTable: React.FC<FestivalAttendanceTableProps> = ({
     const total = attendees.length;
     const active = attendees.filter(user => user.citStatus === "Дійсне").length;
     const frozen = attendees.filter(user => user.citStatus === "Заморожене").length;
-    return { total, active, frozen };
+    const inactive = attendees.filter(user => user.citStatus === "Недійсне").length;
+    return { total, active, frozen, inactive };
   }, [attendees]);
 
   if (attendees.length === 0) {
@@ -66,9 +67,12 @@ const FestivalAttendanceTable: React.FC<FestivalAttendanceTableProps> = ({
         </h3>
         <div className="mt-2 flex gap-6 text-sm text-gray-600">
           <span>Всього: <strong className="text-gray-900">{stats.total}</strong></span>
-          <span>Активні: <strong className="text-green-600">{stats.active}</strong></span>
+          <span>Дійсні: <strong className="text-green-600">{stats.active}</strong></span>
           {stats.frozen > 0 && (
             <span>Заморожені: <strong className="text-orange-600">{stats.frozen}</strong></span>
+          )}
+          {stats.inactive > 0 && (
+            <span>Негромадяни: <strong className="text-red-600">{stats.inactive}</strong></span>
           )}
         </div>
       </div>

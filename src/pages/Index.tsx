@@ -26,7 +26,7 @@ const Index = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
     // Get additional user details
   const additionalUserInfo = userProfile ? 
-    getUserDetails(userProfile.surname, userProfile.passport) : null;
+    getUserDetails(userProfile?.surname, userProfile?.passport) : null;
   
 
   useEffect(() => {
@@ -259,7 +259,7 @@ const Index = () => {
               onClick={() => navigate('/auth')}
               className={`${isAtTop ? 'bg-white/10 border-white/30 text-white hover:bg-white/20' : 'bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200'} transition-all duration-300 pointer-events-auto cursor-pointer`}
             >
-              Увійти
+              Вхід для громадян
             </Button>
           )}
         </div>

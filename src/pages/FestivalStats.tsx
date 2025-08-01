@@ -15,7 +15,10 @@ import {
 import InteractiveStatsGraph from "@/components/InteractiveStatsGraph"; 
 import InteractiveStatsGraph1 from "@/components/InteractiveStatsGraph1";
 import PresidentsTable from "@/components/PresidentsTable";
+import FestivalsTable from "@/components/FestivalsTable";
 import FestivalAttendanceDemo from '@/components/FestivalAttendanceDemo';
+import { getPhotosForYear } from "@/data/galleryData";
+import ElectionsGraph from "@/components/ElectionsGraph";
 
 const FestivalStats = () => {
   const navigate = useNavigate();
@@ -23,79 +26,192 @@ const FestivalStats = () => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+const getRandomImageForYear = (year: number): string => {
+  const photos = getPhotosForYear(year);
+  if (!photos || photos.length === 0) return "";
+  return photos[Math.floor(Math.random() * photos.length)].src;
+};
+
+  // Election data for different years (2021 onwards)
+  const electionData = {
+    2021: [
+      { candidate: "Наталія Кіндратів", votes: 5, party: "ЗМІ", color: "#3B82F6" },
+      { candidate: "Дмитро Гнатків", votes: 4, party: "Управління флоту", color: "#EF4444" },
+      { candidate: "Назарій Вовків", votes: 3, party: "Енергетики", color: "#10B981" },
+      { candidate: "Назар Задорожний", votes: 1, party: "Юстиції", color: "#F59E0B" },
+    ],
+    2022: [
+      { candidate: "Юра Бокало", votes: 9, party: "Господарства", color: "#EF4444" },
+      { candidate: "Назар Задорожний", votes: 7, party: "Юстиції", color: "#10B981" },
+      { candidate: "Віталій Ковальчук", votes: 2, party: "Закордонних справ", color: "#F59E0B" },
+    ],
+    2023: [
+      { candidate: "Назарій Вовків", votes: 12, party: "Енергетики", color: "#10B981" },
+      { candidate: "Наталя Нижник", votes: 9, party: "Господарства", color: "#8B5CF6" },
+    ],
+    2024: [
+      { candidate: "Назар Задорожний", votes: 19, party: "Юстиції", color: "#F97316" },
+      { candidate: "Аліна Кравцова", votes: 4, party: "Енергетики", color: "#6B7280" },
+    ],
+    2025: [
+      { candidate: "Аліна Кравцова", votes: 9, party: "Енергетики", color: "#EC4899" },
+      { candidate: "Світлана Петрук", votes: 8, party: "Фінансів", color: "#8B5CF6" },
+      { candidate: "НЕДІЙСНІ ГОЛОСИ", votes: 1, party: "Центристи", color: "#10B981" },
+    ],
+  };
+
   // Content for each year - you can edit these individually
   const yearStats = {
     2014: {
-      image: "https://picsum.photos/600/300?random=2014",
-      title: "Детальна статистика фестивалю 2014",
-      content: "ЗРАЗОК",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2014),
+      title: "Детальна інформація про фестиваль: 2014",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>19-20 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Перший фестиваль в історії. Проголошення Республіки Вейву відбулося саме на цьому Фестивалі.</li>
+          <li>Вже на першому Фестивалі були визначені такі ознаки Республіки як прапор, герб, міністерства, міністри та Верховна Ліга Джекесу.</li>
+          <li>Вже на першому Фестивалі була здійснена спроба державного перевороту та викрадення державної скарбниці, що була подавлена правоохоронними органами.</li>
+        </ul>
+      `
     },
     2015: {
-      image: "https://picsum.photos/600/300?random=2015",
-      title: "Детальна статистика фестивалю 2015",
-      content: "ЗРАЗОК",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2015),
+      title: "Детальна інформація про фестиваль: 2015",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>16-18 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Наразі це Фестиваль з найменшою кількістю учасників, що є наслідком локального розколу у Республіці 2015-го року.</li>
+          <li>Задля добирання до місця проведення Фестивалю необхідно було переїхати через річку.
+        </ul>
+      `
     },
     2016: {
-      image: "https://picsum.photos/600/300?random=2016",
-      title: "Детальна статистика фестивалю 2016",
-      content: "ЗРАЗОК",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2016),
+      title: "Детальна інформація про фестиваль: 2016",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>15-17 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>На цьому Фестивалі відбувся відомий інцидент з викраденням автомобіля міністра юстиції, що спричинив політичне напруження у Республіці.</li>
+        </ul>
+      `
     },
     2017: {
-      image: "https://picsum.photos/600/300?random=2017",
-      title: "Детальна статистика фестивалю 2017",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2017),
+      title: "Детальна інформація про фестиваль: 2017",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>19-21 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Новозапрошені жителі планували здійснити державний переворот у Республіці,
+          що мало стати вже другою спробою такого перевороту за чотири роки, однак передумали через захоплення тим, як добре функціонувала держава.</li>
+        </ul>
+      `
     },
     2018: {
-      image: "https://picsum.photos/600/300?random=2018",
-      title: "Детальна статистика фестивалю 2018",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2018),
+      title: "Детальна інформація про фестиваль: 2018",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>18-19 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>З певних причин з цього Фестивалю фактично відсутні медіаматеріали.</li>
+          <li>Цей Фестиваль став одним з небагатьох і останнім станом на сьогодні, що тривав два дні, а не три.</li>
+          <li>На цьому Фестивалі відбувся відомий "Голий нічний забіг", внаслідок якого було загублено пляшку горілки та тапочок.</li>
+        </ul>
+      `
     },
     2019: {
-      image: "https://picsum.photos/600/300?random=2019",
-      title: "Детальна статистика фестивалю 2019",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2019),
+      title: "Детальна інформація про фестиваль: 2019",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>16-18 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>На цьому Фестивалі була запроваджена традиція відкриття Фестивалю та підняття прапору новими жителями Республіки.</li>
+          <li>На цьому Фестивалі майже була порушена стаття 13 Конституції Республіки Вейву.</li>
+        </ul>
+      `
     },
     2020: {
-      image: "https://picsum.photos/600/300?random=2020",
-      title: "Детальна статистика фестивалю 2020",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2020),
+      title: "Детальна інформація про фестиваль: 2020",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>21-23 СЕРПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Цей Фестиваль - один з небагатьох, на якому відбулося зменшення кількості жителів.</li>
+          <li>На цьому Фестивалі ЗНОВУ майже була порушена стаття 13 Конституції Республіки Вейву.</li>
+        </ul>
+      `
     },
     2021: {
-      image: "https://picsum.photos/600/300?random=2021",
-      title: "Детальна статистика фестивалю 2021",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2021),
+      title: "Детальна інформація про фестиваль: 2021",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>23-25 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>На цьому Фестивалі вперше були впроваджені паспорти Республіки Вейву.</li>
+          <li>На цьому Фестивалі була попередньо затверджена Конституція Республіки Вейву.</li>
+          <li>На цьому Фестивалі була впроваджена посада Президента Республіки Вейву та вперше були проведені вибори Президента Республіки Вейву.</li>
+          <li>Це єдиний Фестиваль, на якому під час виборів голоси отримав кандидат, що зняв свою кандидатуру. Частково це пояснюється тодішньою версією
+          Конституції, згідно з якою ім'я кандидата залишалося в бюлетені навіть після його зняття з виборів.</li>
+        </ul>
+      `
     },
     2022: {
-      image: "https://picsum.photos/600/300?random=2022",
-      title: "Детальна статистика фестивалю 2022",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2022),
+      title: "Детальна інформація про фестиваль: 2022",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><br /><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>29-31 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Саме на цьому Фестивалі відбувся відомий терористичний акт, який знерухомив близько половини населення Республіки. Експерти часто зазначають,
+          що програш у виборах міністра юстиції міг бути пов'язаним з чутками про його причетність до цього акту.</li>
+        </ul>
+      `
     },
     2023: {
-      image: "https://picsum.photos/600/300?random=2023",
-      title: "Детальна статистика фестивалю 2023",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2023),
+      title: "Детальна інформація про фестиваль: 2023",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>14-16 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Фестиваль 2023-го року ознаменувався дуже активним політичним сезоном. Звинувачення (як багато хто зазначає, безпідставні) кампанії заступниці
+          міністра господарства могли повпливати на кінцевий результат виборів.</li>
+        </ul>
+      `
     },
     2024: {
-      image: "https://picsum.photos/600/300?random=2024",
-      title: "Детальна статистика фестивалю 2024",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2024),
+      title: "Детальна інформація про фестиваль: 2024",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>19-21 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Політичний сезон 2024-го року виявився ще активнішим, ніж попереднього. Ключовими проблемами, що турбували населення Республіки, були 
+          побоювання щодо неконтрольованої імміграції. Саме жорстка позиція міністра юстиції та його віце-президента з цього питання, як зазначають
+          експерти, допомогла йому здобути рішучу перемогу. Тим не менше, вже після виборів деякі журналісти вказували на можливість неформальних 
+          контактів між кандидатами перед виборами, що спричинило скандал.</li>
+        </ul>
+      `
     },
     2025: {
-      image: "https://picsum.photos/600/300?random=2025",
-      title: "Детальна статистика фестивалю 2025",
-      content: "ЗРАЗОК.",
-      details: "ЗРАЗОК"
+      image: getRandomImageForYear(2025),
+      title: "Детальна інформація про фестиваль: 2025",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>25-27 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>Політичний сезон 2025-го року видався спокійнішим. Тим не менше, популістична політика поточної адміністрації щодо впровадження 
+          дискурсу стосовно ролі міністерства Господарства підігріла градус напруги. Результат виборів був найближчим з 2021-го року. Один бюлетень
+          було визнано недійсним комісією з підрахунку голосів.</li>
+        </ul>
+      `
     }
   };
 
@@ -179,14 +295,14 @@ const FestivalStats = () => {
             <br />
             <InteractiveStatsGraph1 />
             <br />
+            <FestivalsTable />
             <br />
-            <PresidentsTable />
+            <PresidentsTable />   
             <br />
-            <br />            
+            <br />                    
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Нижче зібрана детальна статистика всіх проведених фестивалів Республіки Вейву. 
+              Нижче зібрана детальна інформація про всі проведені фестивалі проголошення Республіки Вейву. 
               Натисніть на відповідну кнопку, щоб переглянути статистику конкретного року.
-              РОЗДІЛ В РОЗРОБЦІ!
             </p>
           </div>
 
@@ -209,7 +325,7 @@ const FestivalStats = () => {
           
           <div className="mt-8 p-6 bg-festival-yellow/10 rounded-lg">
             <p className="text-sm text-muted-foreground">
-              Кожна кнопка відкриває нове вікно з детальною статистикою відповідного року.
+              💡 Кожна кнопка відкриває нове вікно з детальною статистикою відповідного року.
               Дані оновлюються регулярно відповідними міністерствами.
             </p>
           </div>
@@ -225,36 +341,55 @@ const FestivalStats = () => {
          </DialogHeader>
   
          {selectedYear && yearStats[selectedYear as keyof typeof yearStats] && (
-            <div className="max-h-[80vh] overflow-y-auto p-4 sm:p-6">
+            <div className="max-h-[70vh] overflow-y-auto p-4 sm:p-4">
               <div className="space-y-6">
                 <img 
                   src={yearStats[selectedYear as keyof typeof yearStats].image}
                   alt={`Статистика ${selectedYear}`}
-                  className="w-full h-64 object-cover rounded-lg"
+                  className="w-full h-80 object-cover rounded-lg"
                />
 
                <div className="space-y-4">
                  <div className="text-muted-foreground leading-relaxed w-full overflow-x-auto">
                     {selectedYear && yearStats[selectedYear as keyof typeof yearStats] && (
                       <>
-                        <p className="mb-4 text-muted-foreground leading-relaxed">
-                          {yearStats[selectedYear as keyof typeof yearStats].content}
-                        </p>
+                        <div
+                          className="mb-4 text-muted-foreground leading-relaxed"
+                          dangerouslySetInnerHTML={{
+                            __html: yearStats[selectedYear as keyof typeof yearStats].content,
+                          }}
+                        />
                         <FestivalAttendanceDemo
                           year={selectedYear.toString()}
-                          title={`Фестиваль ${selectedYear} - відвідувачі. Усі дані поточні, а не станом на фестиваль.`}
+                          title={`${selectedYear} - відвідувачі. Усі дані поточні, а не станом на фестиваль.`}
                         />
+                        
+                        {/* Add ElectionsGraph for years 2021 onwards */}
+                        {selectedYear >= 2021 && electionData[selectedYear as keyof typeof electionData] && (
+                          <div className="mt-6">
+                            <ElectionsGraph
+                              data={electionData[selectedYear as keyof typeof electionData]}
+                              title={`Результати виборів президента ${selectedYear}`}
+                              showPercentages={true}
+                              showVoteCount={true}
+                              year={selectedYear.toString()}
+                            />
+                          </div>
+                        )}
                       </>
                     )}
                   </div>
           
-                 <p className="text-muted-foreground leading-relaxed">
-                    {yearStats[selectedYear as keyof typeof yearStats].details}
-                  </p>
+                <div
+                  className="text-muted-foreground leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: yearStats[selectedYear as keyof typeof yearStats].details,
+                  }}
+                />
           
                  <div className="bg-festival-yellow/10 p-4 rounded-lg">
                    <p className="text-sm text-muted-foreground">
-                     💡 Детальні звіти та аналітика доступні для міністрів та уповноважених осіб.
+                     💡  Якщо ви помітили неточність або помилку, повідомте про неї.
                    </p>
                   </div>
                 </div>
@@ -266,5 +401,16 @@ const FestivalStats = () => {
     </div>
   );
 };
+
+// AN EXAMPLE FOR FORMATTING TEXT IN HTML FOR FUTURE USE
+// `
+//        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+//        <ul style="padding-left: 1.5em; list-style-type: disc;">
+//          <li><strong style="color: green;">Відвідувачів:</strong> понад 10 000</li>
+//          <li><span style="color: purple;">Локацій:</span> 5</li>
+//          <li><span style="font-size: 1.2em; color: darkblue;">Хедлайнери:</span> Гурт A, Гурт B</li>
+//        </ul>
+//      `
+
 
 export default FestivalStats;
