@@ -10,22 +10,17 @@ const PersonalCabinet = () => {
   const { user, userProfile, signOut, loading } = useAuth();
   const navigate = useNavigate();
 
-  // Get additional user details
-  const additionalUserInfo = userProfile ? 
-    getUserDetails(userProfile.surname, userProfile.passport) : null;
-
-  if (loading) {
+    if (loading || !userProfile) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-festival-blue via-festival-blue/90 to-festival-yellow/20 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+        <div className="text-white text-xl">Завантаження...</div>
       </div>
     );
   }
 
-  if (!user || !userProfile) {
-    navigate('/');
-    return null;
-  }
+  // Get additional user details
+  const additionalUserInfo = userProfile ? 
+    getUserDetails(userProfile?.surname, userProfile?.passport) : null;
 
   const handleSignOut = async () => {
     await signOut();
@@ -66,7 +61,7 @@ const PersonalCabinet = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-white text-2xl">
                 <User className="w-8 h-8" />
-                Республіка вітає вас, {additionalUserInfo?.firstName || userProfile.surname}!
+                Республіка вітає вас, {additionalUserInfo?.firstName || userProfile?.surname}!
               </CardTitle>
             </CardHeader>
             <CardContent className="text-white/90">
@@ -92,7 +87,7 @@ const PersonalCabinet = () => {
                 {/* Basic Information */}
                 <div>
                   <label className="text-white/70 text-sm font-medium">Прізвище</label>
-                  <p className="text-white text-lg font-semibold mt-1">{userProfile.surname}</p>
+                  <p className="text-white text-lg font-semibold mt-1">{userProfile?.surname}</p>
                 </div>
                 {additionalUserInfo?.firstName && (
                   <div>
@@ -102,7 +97,7 @@ const PersonalCabinet = () => {
                 )}
                 <div>
                   <label className="text-white/70 text-sm font-medium">Серія та номер паспорту</label>
-                  <p className="text-white text-lg font-semibold mt-1">{userProfile.passport}</p>
+                  <p className="text-white text-lg font-semibold mt-1">{userProfile?.passport}</p>
                 </div>
                 {additionalUserInfo?.status && (
                   <div>
@@ -151,7 +146,7 @@ const PersonalCabinet = () => {
                 <div>
                   <label className="text-white/70 text-sm font-medium">Дата реєстрації в системі</label>
                   <p className="text-white text-lg mt-1">
-                    {new Date(userProfile.created_at).toLocaleDateString('uk-UA')}
+                    {new Date(userProfile?.created_at).toLocaleDateString('uk-UA')}
                   </p>
                 </div>
                 <div>
@@ -177,7 +172,6 @@ const PersonalCabinet = () => {
                   const year = 2014 + i;
                   const attendedYears = additionalUserInfo?.attendance?.split(',').map(y => y.trim()) || [];
                   const attended = attendedYears.includes(year.toString());
-                  const navigate = useNavigate();
 
                   return (
                     <div

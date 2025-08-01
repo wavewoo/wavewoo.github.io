@@ -58,7 +58,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (session?.user) {
         loadUserProfile(session.user.id);
       }
-      setLoading(false);
     });
 
     return () => subscription.unsubscribe();

@@ -149,7 +149,8 @@ const AuthPage = () => {
 
             <div className="mt-6 p-3 bg-gray-50 rounded-lg">
               <p className="text-xs text-muted-foreground text-center mb-2 font-medium">
-                Доступ надається лише громадянам Республіки з дійсним паспортом.
+                Увага! Доступ надається лише громадянам Республіки з дійсним паспортом нового зразка
+                (не раніше ніж 2022-го року видачі).
               </p>
               <div className="text-xs text-muted-foreground">
                 <p className="font-medium mb-2">Інструкції:</p>

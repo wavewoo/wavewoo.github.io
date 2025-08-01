@@ -15,6 +15,7 @@ import {
 import InteractiveStatsGraph from "@/components/InteractiveStatsGraph"; 
 import InteractiveStatsGraph1 from "@/components/InteractiveStatsGraph1";
 import PresidentsTable from "@/components/PresidentsTable";
+import FestivalAttendanceDemo from '@/components/FestivalAttendanceDemo';
 
 const FestivalStats = () => {
   const navigate = useNavigate();
@@ -216,38 +217,50 @@ const FestivalStats = () => {
       </FestivalSection>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-4xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl text-festival-blue">
-              {selectedYear && yearStats[selectedYear as keyof typeof yearStats]?.title}
-            </DialogTitle>
-          </DialogHeader>
+           <DialogTitle className="text-2xl text-festival-blue">
+             {selectedYear && yearStats[selectedYear as keyof typeof yearStats]?.title}
+           </DialogTitle>
+         </DialogHeader>
+  
+         {selectedYear && yearStats[selectedYear as keyof typeof yearStats] && (
+            <div className="max-h-[80vh] overflow-y-auto p-4 sm:p-6">
+              <div className="space-y-6">
+                <img 
+                  src={yearStats[selectedYear as keyof typeof yearStats].image}
+                  alt={`Статистика ${selectedYear}`}
+                  className="w-full h-64 object-cover rounded-lg"
+               />
+
+               <div className="space-y-4">
+                 <div className="text-muted-foreground leading-relaxed w-full overflow-x-auto">
+                    {selectedYear && yearStats[selectedYear as keyof typeof yearStats] && (
+                      <>
+                        <p className="mb-4 text-muted-foreground leading-relaxed">
+                          {yearStats[selectedYear as keyof typeof yearStats].content}
+                        </p>
+                        <FestivalAttendanceDemo
+                          year={selectedYear.toString()}
+                          title={`Фестиваль ${selectedYear} - відвідувачі. Усі дані поточні, а не станом на фестиваль.`}
+                        />
+                      </>
+                    )}
+                  </div>
           
-          {selectedYear && yearStats[selectedYear as keyof typeof yearStats] && (
-            <div className="space-y-6">
-              <img 
-                src={yearStats[selectedYear as keyof typeof yearStats].image}
-                alt={`Статистика ${selectedYear}`}
-                className="w-full h-64 object-cover rounded-lg"
-              />
-              
-              <div className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  {yearStats[selectedYear as keyof typeof yearStats].content}
-                </p>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {yearStats[selectedYear as keyof typeof yearStats].details}
-                </p>
-                
-                <div className="bg-festival-yellow/10 p-4 rounded-lg">
-                  <p className="text-sm text-muted-foreground">
-                    💡 Детальні звіти та аналітика доступні для міністрів та уповноважених осіб.
+                 <p className="text-muted-foreground leading-relaxed">
+                    {yearStats[selectedYear as keyof typeof yearStats].details}
                   </p>
+          
+                 <div className="bg-festival-yellow/10 p-4 rounded-lg">
+                   <p className="text-sm text-muted-foreground">
+                     💡 Детальні звіти та аналітика доступні для міністрів та уповноважених осіб.
+                   </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+           </div>
+         )}
         </DialogContent>
       </Dialog>
     </div>
