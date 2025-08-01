@@ -92,7 +92,35 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       // Create a valid email format and secure password for Supabase
       const passportNum = passport.replace(/[^0-9]/g, ''); // Extract only numbers
-      const email = `user${passportNum}@gmail.com`; // Use Gmail domain for maximum compatibility
+      
+      // Handle duplicate passport numbers by checking if email already exists
+      let emailSuffix = '';
+      let attemptCount = 0;
+      let email = `user${passportNum}@gmail.com`;
+      
+      // If we've tried this passport number before and it failed, add a suffix
+      const existingEmails = new Set();
+      // We'll try up to 10 variations to handle duplicates
+      while (attemptCount < 10) {
+        const testEmail = attemptCount === 0 ? `user${passportNum}@gmail.com` : `user${passportNum}${attemptCount}@gmail.com`;
+        
+        // Try to sign in to see if this email exists
+        const { error: testError } = await supabase.auth.signInWithPassword({
+          email: testEmail,
+          password: 'TestPassword123!', // Dummy password just to test existence
+        });
+        
+        // If we get "Invalid login credentials", the email exists but password is wrong
+        // If we get "User not found" or similar, the email is available
+        if (testError && testError.message.includes('Invalid login credentials')) {
+          attemptCount++;
+          continue; // This email exists, try next variation
+        } else {
+          email = testEmail;
+          break; // This email is available
+        }
+      }
+      
       const password = `Password123!`; // Simple strong password
       
       console.log('Auth attempt:', { 

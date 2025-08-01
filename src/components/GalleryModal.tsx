@@ -8,8 +8,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { getPhotosForYear, hasPhotosForYear } from "@/data/galleryData";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import AuthModal from "./AuthModal";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface GalleryModalProps {
   year: number;
@@ -17,11 +18,12 @@ interface GalleryModalProps {
 }
 
 const GalleryModal = ({ year, children }: GalleryModalProps) => {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const photos = getPhotosForYear(year);
   const hasPhotos = hasPhotosForYear(year);
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {
@@ -103,14 +105,18 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
     if (e.key === 'ArrowLeft') prevPhoto();
   };
 
-  const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
-    // Open the link after successful authentication
-    window.open(
-      "https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link",
-      "_blank",
-      "noopener,noreferrer"
-    );
+  const handleAllPhotosAccess = () => {
+    if (isAuthenticated) {
+      // User is authenticated, open the Google Drive link
+      window.open(
+        "https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    } else {
+      // User is not authenticated, redirect to auth page
+      navigate("/auth");
+    }
   };
 
   return (
@@ -151,22 +157,13 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                   Клікніть на фото для перегляду у повному розмірі
                 </p>
                 
-                <AuthModal onSuccess={handleAuthSuccess}>
-                  <Button 
-                    variant="outline" 
-                    className="w-full max-w-xs"
-                  >
-                    Перейти до всіх фотографій
-                  </Button>
-                </AuthModal>
-                
-                {isAuthenticated && (
-                  <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <p className="text-sm text-green-700">
-                      ✓ Авторизація пройдена успішно! Посилання відкрито в новій вкладці.
-                    </p>
-                  </div>
-                )}
+                <Button 
+                  variant="outline" 
+                  className="w-full max-w-xs"
+                  onClick={handleAllPhotosAccess}
+                >
+                  Перейти до всіх фотографій
+                </Button>
               </div>
             </>
           ) : (

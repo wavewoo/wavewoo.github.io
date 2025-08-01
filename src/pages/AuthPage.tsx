@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, ArrowLeft } from 'lucide-react';
+import { Loader2, ArrowLeft, Lock, AlertCircle, CheckCircle } from 'lucide-react';
 
 const AuthPage = () => {
   const { signIn, isAuthenticated } = useAuth();
@@ -66,72 +67,98 @@ const AuthPage = () => {
 
         <Card className="w-full">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">Вхід до особистого кабінету</CardTitle>
-            <CardDescription>
-              Введіть ваші дані для доступу до закритих розділів сайту
-            </CardDescription>
+            <CardTitle className="flex items-center justify-center gap-3 text-xl text-festival-blue">
+              <Lock className="w-6 h-6" />
+              Автентифікація
+            </CardTitle>
           </CardHeader>
           <CardContent>
+            <div className="bg-festival-yellow/10 p-4 rounded-lg mb-6">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-festival-blue mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Доступ до особистого кабінету та певних сторінок сайту є тільки у громадян Республіки. 
+                    Якщо ви ще не маєте статусу громадянина та бажаєте оглянути сайт, зверніться до когось з громадян.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <label htmlFor="surname" className="text-sm font-medium">
+              <div>
+                <Label htmlFor="surname" className="text-festival-blue font-medium">
                   Прізвище (великими літерами)
-                </label>
+                </Label>
                 <Input
                   id="surname"
                   type="text"
-                  placeholder="ІВАНОВ"
+                  placeholder="ВЕЙВІВСЬКИЙ"
                   value={surname}
                   onChange={(e) => setSurname(e.target.value.toUpperCase())}
                   disabled={loading}
-                  className="w-full"
+                  className="mt-1"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="passport" className="text-sm font-medium">
-                  Номер паспорту
-                </label>
+              <div>
+                <Label htmlFor="passport" className="text-festival-blue font-medium">
+                  Серія та номер паспорту
+                </Label>
                 <Input
                   id="passport"
                   type="text"
-                  placeholder="НС0001"
+                  placeholder="АБ0000"
                   value={passport}
                   onChange={(e) => setPassport(e.target.value.toUpperCase())}
                   disabled={loading}
-                  className="w-full"
+                  className="mt-1"
                 />
               </div>
 
               {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-red-700">{error}</p>
+                  </div>
+                </div>
               )}
 
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Вхід...
-                  </>
-                ) : (
-                  'Увійти'
-                )}
-              </Button>
+              <div className="pt-2">
+                <Button
+                  type="submit"
+                  variant="hero"
+                  disabled={loading || !surname.trim() || !passport.trim()}
+                  className="w-full"
+                >
+                  {loading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                      Вхід...
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle className="w-4 h-4 mr-2" />
+                      Увійти
+                    </>
+                  )}
+                </Button>
+              </div>
             </form>
 
-            <div className="mt-6 text-sm text-muted-foreground">
-              <p className="font-medium mb-2">Інструкції:</p>
-              <ul className="space-y-1 text-xs">
-                <li>• Прізвище вводьте великими літерами українською мовою</li>
-                <li>• Номер паспорту вводьте точно як вказано в документах</li>
-                <li>• Доступ мають тільки авторизовані громадяни</li>
-              </ul>
+            <div className="mt-6 p-3 bg-gray-50 rounded-lg">
+              <p className="text-xs text-muted-foreground text-center mb-2 font-medium">
+                Доступ надається лише громадянам Республіки з дійсним паспортом.
+              </p>
+              <div className="text-xs text-muted-foreground">
+                <p className="font-medium mb-2">Інструкції:</p>
+                <ul className="space-y-1">
+                  <li>• Прізвище вводьте великими літерами українською мовою</li>
+                  <li>• Серію та номер паспорту вводьте без пробілу</li>
+                  <li>• Для успішного входу в кабінет ваш паспорт має бути дійсним</li>
+                </ul>
+              </div>
             </div>
           </CardContent>
         </Card>

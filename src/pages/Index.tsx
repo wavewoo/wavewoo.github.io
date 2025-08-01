@@ -12,13 +12,44 @@ import { LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { useState, useEffect } from "react";
 import passportImage from "@/assets/festival-passport.png";
 import coatOfArms from "@/assets/coat-of-arms.png";
 import flagWeywu from "@/assets/flag-weywu.png";
+import { getUserDetails } from '@/lib/supabase';
 
 const Index = () => {
   const navigate = useNavigate();
   const { isAuthenticated, userProfile, signOut } = useAuth();
+  const [showUserMenu, setShowUserMenu] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+    // Get additional user details
+  const additionalUserInfo = userProfile ? 
+    getUserDetails(userProfile.surname, userProfile.passport) : null;
+  
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Track if we're at the very top
+      setIsAtTop(currentScrollY < 110);
+      
+      // Show menu when at top of page or when scrolling up
+      if (currentScrollY < 10 || currentScrollY < lastScrollY) {
+        setShowUserMenu(true);
+      } else {
+        // Hide when scrolling down
+        setShowUserMenu(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleSignOut = async () => {
     await signOut();
@@ -192,19 +223,23 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* User Menu - either login button or user info */}
-      <div className="fixed top-4 right-4 z-[60] pointer-events-auto">
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-3">
+      {/* User Menu - appears/disappears based on scroll direction */}
+      <div className={`fixed top-4 right-4 z-[60] pointer-events-auto transition-all duration-500 ease-in-out ${
+        showUserMenu 
+          ? 'translate-y-0 opacity-100' 
+          : '-translate-y-full opacity-0'
+      }`}>
+        <div className={`${isAtTop ? 'bg-white/10 border-white/20' : 'bg-white border-gray-200'} backdrop-blur-sm rounded-lg p-3 shadow-lg transition-colors duration-300`}>
           {isAuthenticated ? (
             <div className="flex items-center gap-3">
-              <div className="text-white text-sm">
-                Вітаємо, <span className="font-semibold">{userProfile?.surname}</span>
+              <div className={`${isAtTop ? 'text-white' : 'text-gray-800'} text-sm transition-colors duration-300`}>
+                Вітаємо, <span className="font-semibold">{additionalUserInfo?.firstName || userProfile?.surname}</span>!
               </div>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => navigate('/cabinet')}
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20 pointer-events-auto cursor-pointer"
+                className={`${isAtTop ? 'bg-white/10 border-white/30 text-white hover:bg-white/20' : 'bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200'} transition-all duration-300 pointer-events-auto cursor-pointer`}
               >
                 Кабінет
               </Button>
@@ -212,7 +247,7 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={handleSignOut}
-                className="bg-red-500/20 border-red-300/50 text-white hover:bg-red-500/30 pointer-events-auto cursor-pointer"
+                className={`${isAtTop ? 'bg-red-500/20 border-red-300/50 text-white hover:bg-red-500/30' : 'bg-red-100 border-red-300 text-red-700 hover:bg-red-200'} transition-all duration-300 pointer-events-auto cursor-pointer`}
               >
                 <LogOut className="w-4 h-4" />
               </Button>
@@ -222,7 +257,7 @@ const Index = () => {
               variant="outline"
               size="sm"
               onClick={() => navigate('/auth')}
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20 pointer-events-auto cursor-pointer"
+              className={`${isAtTop ? 'bg-white/10 border-white/30 text-white hover:bg-white/20' : 'bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200'} transition-all duration-300 pointer-events-auto cursor-pointer`}
             >
               Увійти
             </Button>
