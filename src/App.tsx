@@ -10,6 +10,7 @@ import FestivalDetails from "./pages/FestivalDetails";
 import NextFestival from "./pages/NextFestival";
 import FestivalStats from "./pages/FestivalStats";
 import PersonalCabinet from "./pages/PersonalCabinet";
+import Whiteboard from "./pages/Whiteboard";
 import AuthPage from "./pages/AuthPage";
 import NotFound from "./pages/NotFound";
 
@@ -43,6 +44,11 @@ const App = () => (
             <Route path="/cabinet" element={
               <ProtectedRoute>
                 <PersonalCabinet />
+              </ProtectedRoute>
+            } />
+            <Route path="/whiteboard" element={
+              <ProtectedRoute>
+                <Whiteboard />
               </ProtectedRoute>
             } />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

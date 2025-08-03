@@ -224,7 +224,7 @@ export const AUTHORIZED_USERS = [
   { 
     surname: "ПАГУТА", 
     passport: "МЙ0014",
-    firstName: "Петрина",
+    firstName: "Богдан",
     birthDate: "1999-01-23",
     citizenshipDate: "2025-07-25",
     passportDate: "2025-07-25",
@@ -290,7 +290,7 @@ export const AUTHORIZED_USERS = [
   { 
     surname: "МИХАЙЛЮК", 
     passport: "МЙ0021",
-    firstName: "Максим",
+    firstName: "Христина",
     birthDate: "1990-05-20",
     citizenshipDate: "2025-07-25",
     passportDate: "2025-07-25",

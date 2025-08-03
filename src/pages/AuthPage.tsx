@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, ArrowLeft, Lock, AlertCircle, CheckCircle } from 'lucide-react';
 
 const AuthPage = () => {
@@ -78,8 +77,17 @@ const AuthPage = () => {
                 <AlertCircle className="w-5 h-5 text-festival-blue mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-muted-foreground">
-                    Доступ до особистого кабінету та певних сторінок сайту є тільки у громадян Республіки. 
-                    Якщо ви ще не маєте статусу громадянина та бажаєте оглянути сайт, зверніться до когось з громадян.
+                    Доступ до особистого кабінету та певних сторінок сайту є тільки у громадян Республіки.
+                    <br />
+                    <br />
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-festival-blue mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Під час першого входу особистий кабінет може завантажуватися довше. Це нормально.
                   </p>
                 </div>
               </div>
@@ -88,7 +96,7 @@ const AuthPage = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="surname" className="text-festival-blue font-medium">
-                  Прізвище (великими літерами)
+                  Прізвище
                 </Label>
                 <Input
                   id="surname"

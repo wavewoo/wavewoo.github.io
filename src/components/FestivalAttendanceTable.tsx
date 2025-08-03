@@ -47,6 +47,19 @@ const FestivalAttendanceTable: React.FC<FestivalAttendanceTableProps> = ({
     return { total, active, frozen, inactive };
   }, [attendees]);
 
+  // Helper function to get festival count for a user up to and including the current year
+  const getFestivalCount = (user: User, currentYear: string): number => {
+    if (!user.attendance) return 0;
+    
+    const attendedYears = user.attendance.split(', ').map(y => y.trim()).filter(Boolean);
+    const currentYearIndex = attendedYears.indexOf(currentYear);
+    
+    if (currentYearIndex === -1) return 0;
+    
+    // Return the position (1-indexed) of the current year in the attendance list
+    return currentYearIndex + 1;
+  };
+
   if (attendees.length === 0) {
     return (
       <div className={`bg-gray-50 border border-gray-200 rounded-lg p-8 text-center ${className}`}>
@@ -95,38 +108,46 @@ const FestivalAttendanceTable: React.FC<FestivalAttendanceTableProps> = ({
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ЗРАЗОК</th>
               )}
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Громадянство</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Примітки</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {attendees.map((user, index) => (
-              <tr key={user.passport} className="hover:bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-500">{index + 1}</td>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">{user.surname}</td>
-                <td className="px-6 py-4 text-sm text-gray-900">{user.firstName}</td>
-                {showPassport && (
-                  <td className="px-6 py-4 text-sm text-gray-500 font-mono">{user.passport}</td>
-                )}
-                {showStatus && (
-                  <td className="px-6 py-4 text-sm text-gray-600">{user.status}</td>
-                )}
-                {showCitizenship && (
-                  <td className="px-6 py-4 text-sm text-gray-500">{user.citizenshipDate}</td>
-                )}
-                <td className="px-6 py-4">
-                  <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                    user.citStatus === "Дійсне"
-                      ? "bg-green-100 text-green-800"
-                      : user?.citStatus === "Недійсне"
-                      ? "bg-red-100 text-red-800"
-                      : user?.citStatus === "Довічне"
-                      ? "bg-blue-100 text-blue-800"
-                      : "bg-orange-100 text-orange-800"
-                  }`}>
-                    {user.citStatus}
-                  </span>
-                </td>
-              </tr>
-            ))}
+            {attendees.map((user, index) => {
+              const festivalCount = getFestivalCount(user, year);
+              return (
+                <tr key={user.passport} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-500">{index + 1}</td>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">{user.surname}</td>
+                  <td className="px-6 py-4 text-sm text-gray-900">{user.firstName}</td>
+                  {showPassport && (
+                    <td className="px-6 py-4 text-sm text-gray-500 font-mono">{user.passport}</td>
+                  )}
+                  {showStatus && (
+                    <td className="px-6 py-4 text-sm text-gray-600">{user.status}</td>
+                  )}
+                  {showCitizenship && (
+                    <td className="px-6 py-4 text-sm text-gray-500">{user.citizenshipDate}</td>
+                  )}
+                  <td className="px-6 py-4">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                      user.citStatus === "Дійсне"
+                        ? "bg-green-100 text-green-800"
+                        : user?.citStatus === "Недійсне"
+                        ? "bg-red-100 text-red-800"
+                        : user?.citStatus === "Довічне"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-orange-100 text-orange-800"
+                    }`}>
+                      {user.citStatus}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    {festivalCount === 1 && <span className="text-lg">1️⃣</span>}
+                    {festivalCount === 2 && <span className="text-lg">2️⃣</span>}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

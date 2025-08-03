@@ -46,7 +46,7 @@ const PersonalCabinet = () => {
               className="bg-white/10 border-white/30 text-white hover:bg-white/20"
             >
               <Home className="w-4 h-4 mr-2" />
-              На головну
+              Головна
             </Button>
             <Button 
               variant="outline" 
@@ -79,7 +79,17 @@ const PersonalCabinet = () => {
                   <Shield className="w-4 h-5 mr-2" />
                   Громадянин Республіки Вейву
                 </Badge>
+                <br />
+                <br />
               </div>
+              {/* Warning Message for Frozen Status */}
+              {additionalUserInfo?.citStatus === 'Заморожене' && (
+                 <div className="bg-red-500/30 border border-red-500/50 text-white text-md font-semibold p-4 rounded-lg text-center">
+                  УВАГА! ВАШЕ ГРОМАДЯНСТВО ЗАМОРОЖЕНЕ!<br />
+                  Швидше за все, так сталося, бо ви не були присутніми принаймні на трьох останніх фестивалях. Зверніть увагу, що якщо ви будете відсутні
+                  на п'яти останніх фестивалях, ваше громадянство та ваш паспорт втратять силу.
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -88,11 +98,12 @@ const PersonalCabinet = () => {
             <CardHeader>
               <CardTitle className="text-white text-xl">Ваш електронний паспорт:</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6">              
+
               {/* Photo Section */}
               <div className="flex justify-left mb-6">
                 <div className="relative">
-                  <div className="w-32 h-32 bg-white/10 border-2 border-white/30 rounded-lg overflow-hidden shadow-lg">
+                  <div className="w-32 h-42 bg-white/10 border-2 border-white/30 rounded-lg overflow-hidden shadow-lg">
                     {passportPhoto ? (
                       <img 
                         src={passportPhoto} 
@@ -108,6 +119,7 @@ const PersonalCabinet = () => {
                 </div>
               </div>
 
+              {/* Subsections Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Basic Information */}
                 <div>
@@ -149,7 +161,7 @@ const PersonalCabinet = () => {
                 {additionalUserInfo?.citizenshipDate && (
                   <div>
                     <label className="text-white/70 text-sm font-medium flex items-center gap-2">
-                      <Award className="w-4 h-4" />
+                      <Calendar className="w-4 h-4" />
                       Дата отримання громадянства
                     </label>
                     <p className="text-white text-lg mt-1">
@@ -217,7 +229,7 @@ const PersonalCabinet = () => {
                         opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200
                         backdrop-blur-sm border border-white/20 z-10
                       `}>
-                        {attended ? 'Був присутній' : 'Не був присутній'}
+                        {attended ? 'Відвідав\\ла' : 'Не відвідав\\ла'}
                       </div>
                     </div>
                   );
@@ -232,7 +244,8 @@ const PersonalCabinet = () => {
               <CardTitle className="text-white text-xl">Швидкі дії</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Existing Grid for Other Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                 <Button 
                   variant="outline" 
                   onClick={() => window.open("https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link")}
@@ -256,6 +269,17 @@ const PersonalCabinet = () => {
                 >
                   <span className="font-semibold">Статистика</span>
                   <span className="text-sm opacity-80">Детальні дані</span>
+                </Button>
+              </div>
+              {/* New Full-Width Section for Whiteboard Button */}
+              <div className="w-full">
+                <Button 
+                  variant="outline" 
+                  onClick={() => navigate('/whiteboard')}
+                  className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20 h-auto py-4 flex-col gap-2"
+                >
+                  <span className="font-semibold">Спільна дошка</span>
+                  <span className="text-sm opacity-80">Діліться ідеями і малюнками</span>
                 </Button>
               </div>
             </CardContent>

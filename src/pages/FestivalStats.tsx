@@ -51,10 +51,10 @@ const getRandomImageForYear = (year: number): string => {
     ],
     2024: [
       { candidate: "Назар Задорожний", votes: 19, party: "Юстиції", color: "#F97316" },
-      { candidate: "Аліна Кравцова", votes: 4, party: "Енергетики", color: "#6B7280" },
+      { candidate: "Аліна Ліщук", votes: 4, party: "Енергетики", color: "#6B7280" },
     ],
     2025: [
-      { candidate: "Аліна Кравцова", votes: 9, party: "Енергетики", color: "#EC4899" },
+      { candidate: "Аліна Ліщук", votes: 9, party: "Енергетики", color: "#EC4899" },
       { candidate: "Світлана Петрук", votes: 8, party: "Фінансів", color: "#8B5CF6" },
       { candidate: "НЕДІЙСНІ ГОЛОСИ", votes: 1, party: "Центристи", color: "#10B981" },
     ],
@@ -346,7 +346,7 @@ const getRandomImageForYear = (year: number): string => {
                 <img 
                   src={yearStats[selectedYear as keyof typeof yearStats].image}
                   alt={`Статистика ${selectedYear}`}
-                  className="w-full h-80 object-cover rounded-lg"
+                  className="w-full h-96 object-cover rounded-lg"
                />
 
                <div className="space-y-4">

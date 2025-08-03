@@ -20,7 +20,6 @@ const FestivalAttendanceDemo = ({
 
   return (
     <div className="space-y-8 p-0 max-w-7xl mx-auto">
-
       <FestivalAttendanceTable
         users={users}
         year={year}

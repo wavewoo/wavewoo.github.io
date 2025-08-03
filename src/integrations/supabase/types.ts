@@ -41,6 +41,45 @@ export type Database = {
         }
         Relationships: []
       }
+      whiteboard_objects: {
+        Row: {
+          author_name: string
+          created_at: string
+          id: string
+          object_data: Json
+          object_id: string
+          object_type: string
+          position_x: number
+          position_y: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          author_name: string
+          created_at?: string
+          id?: string
+          object_data: Json
+          object_id: string
+          object_type: string
+          position_x?: number
+          position_y?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          author_name?: string
+          created_at?: string
+          id?: string
+          object_data?: Json
+          object_id?: string
+          object_type?: string
+          position_x?: number
+          position_y?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

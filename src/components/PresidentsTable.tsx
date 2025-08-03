@@ -9,7 +9,7 @@ const PresidentsTable = () => {
     { period: "2023", name: "Юра Бокало", achievements: "" },
     { period: "2024", name: "Назарій Вовків", achievements: "" },
     { period: "2025", name: "Назар Задорожний", achievements: "" },
-    { period: "2026", name: "Аліна Кравцова", achievements: "" },
+    { period: "2026", name: "Аліна Ліщук", achievements: "" },
   ];
 
   return (
