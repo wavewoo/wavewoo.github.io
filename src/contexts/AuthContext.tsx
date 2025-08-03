@@ -48,8 +48,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }, 0);
       } else {
         setUserProfile(null);
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     // THEN get initial session
@@ -73,12 +73,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (error && error.code !== 'PGRST116') {
         console.error('Error loading user profile:', error);
+        setLoading(false);
         return;
       }
 
       setUserProfile(data);
+      setLoading(false);
     } catch (error) {
       console.error('Error in loadUserProfile:', error);
+      setLoading(false);
     }
   };
 
@@ -90,18 +93,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       // Create a valid email format and secure password for Supabase
-      const passportNum = passport.replace(/[^0-9]/g, ''); // Extract only numbers
+      // Transliterate Cyrillic to Latin for email compatibility
+      const cyrillicToLatin: { [key: string]: string } = {
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+        'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+        'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '', 'ы': 'y', 'ь': '',
+        'э': 'e', 'ю': 'yu', 'я': 'ya'
+      };
+      
+      const passportForEmail = passport.toLowerCase()
+        .split('')
+        .map(char => cyrillicToLatin[char] || char)
+        .join('')
+        .replace(/[^a-z0-9]/g, ''); // Keep only Latin letters and numbers
       
       // Handle duplicate passport numbers by checking if email already exists
       let emailSuffix = '';
       let attemptCount = 0;
-      let email = `user${passportNum}@gmail.com`;
+      let email = `user${passportForEmail}@gmail.com`;
       
       // If we've tried this passport number before and it failed, add a suffix
       const existingEmails = new Set();
       // We'll try up to 10 variations to handle duplicates
       while (attemptCount < 10) {
-        const testEmail = attemptCount === 0 ? `user${passportNum}@gmail.com` : `user${passportNum}${attemptCount}@gmail.com`;
+        const testEmail = attemptCount === 0 ? `user${passportForEmail}@gmail.com` : `user${passportForEmail}${attemptCount}@gmail.com`;
         
         // Try to sign in to see if this email exists
         const { error: testError } = await supabase.auth.signInWithPassword({
@@ -126,7 +141,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         originalSurname: surname, 
         originalPassport: passport, 
         generatedEmail: email, 
-        passportNum 
+        passportForEmail 
       });
 
       // Try to sign in first

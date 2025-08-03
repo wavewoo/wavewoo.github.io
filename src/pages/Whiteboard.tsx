@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Home, LogOut, FileUser } from 'lucide-react';
@@ -15,14 +15,16 @@ const Whiteboard = () => {
   const [selectedColor, setSelectedColor] = useState('#000000');
   const [selectedObject, setSelectedObject] = useState<FabricObject | null>(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
   };
 
   const handleClearCanvas = () => {
-    // Note: This would need to be implemented to clear all objects from database
-    // For now, we'll show a toast
     toast.info('Ви не можете очищати дошку');
   };
 
@@ -46,19 +48,25 @@ const Whiteboard = () => {
               onClick={() => navigate('/')}
               className="bg-white/10 border-white/30 text-white hover:bg-white/20"
             >
-              <Home className="w-4 h-4 mr-2" />
-              Головна
+              <Home className="w-4 h-4" />
             </Button>
             <Button 
               variant="outline" 
               onClick={handleSignOut}
               className="bg-red-500/20 border-red-300/50 text-white hover:bg-red-500/30"
             >
-              <LogOut className="w-4 h-4 mr-2" />
+              <LogOut className="w-4 h-4" />
             </Button>
           </div>
         </div>
       </nav>
+
+      {/* Notice Message */}
+        <div className="container mx-auto px-4 py-4">
+          <div className="max-w-7xl mx-auto bg-red-500/30 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white/90 text-center">
+            <p className="font-semibold">Увага! На мобільних телефонах краще використовувати альбомну орієнтацію екрану</p>
+          </div>
+        </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-6">
@@ -87,12 +95,14 @@ const Whiteboard = () => {
           />
 
           {/* Canvas */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-6">
-            <WhiteboardCanvas
-              selectedTool={selectedTool}
-              selectedColor={selectedColor}
-              onObjectSelected={setSelectedObject}
-            />
+          <div className="w-full overflow-x-auto bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-4 sm:p-6">
+            <div className="min-w-[1200px]">
+              <WhiteboardCanvas
+                selectedTool={selectedTool}
+                selectedColor={selectedColor}
+                onObjectSelected={setSelectedObject}
+              />
+            </div>
           </div>
 
           {/* Instructions for object management */}

@@ -10,7 +10,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр юстиції",
     citStatus: "Дійсне",
-    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025"
+    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025",
+    internship: "Непотрібне"
   },
   { 
     surname: "ПАХАЛЮК", 
@@ -87,7 +88,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр господарства",
     citStatus: "Дійсне",
-    attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+    attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    maritalStatus: "ЛБ0002; 2021-07-23"
   },
   { 
     surname: "БОКАЛО", 
@@ -98,7 +100,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр брендингу",
     citStatus: "Дійсне",
-    attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+    attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    maritalStatus: "ЛБ0001; 2021-07-23"
   },
   { 
     surname: "КОВАЛЬЧУК", 
@@ -120,7 +123,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Заступниця міністра господарства",
     citStatus: "Дійсне",
-    attendance: "2021, 2022, 2023, 2024, 2025"
+    attendance: "2021, 2022, 2023, 2024, 2025",
+    internship: "2021, у міністерстві господарства, ЛБ0001"
   },
   { 
     surname: "ГНАТКІВ", 

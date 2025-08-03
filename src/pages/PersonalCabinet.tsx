@@ -53,7 +53,7 @@ const PersonalCabinet = () => {
               onClick={handleSignOut}
               className="bg-red-500/20 border-red-300/50 text-white hover:bg-red-500/30"
             >
-              <LogOut className="w-4 h-4 mr-2" />
+              <LogOut className="w-4 h-4" />
             </Button>
           </div>
         </div>
@@ -181,9 +181,13 @@ const PersonalCabinet = () => {
                   </div>
                 )}
                 <div>
-                  <label className="text-white/70 text-sm font-medium">Дата реєстрації в системі</label>
+                  <label className="text-white/70 text-sm font-medium">Сімейний стан</label>
                   <p className="text-white text-lg mt-1">
-                    {new Date(userProfile?.created_at).toLocaleDateString('uk-UA')}
+                    {additionalUserInfo?.maritalStatus ? (() => {
+                      const [spousePassport, marriageDate] = additionalUserInfo.maritalStatus.split('; ');
+                      const spouseInfo = getUserDetails('', spousePassport);
+                      return `Шлюб з ${spouseInfo?.firstName || ''} ${spouseInfo?.surname || ''}, паспорт ${spousePassport} зареєстровано ${new Date(marriageDate).toLocaleDateString('uk-UA')}`;
+                    })() : 'Вільний'}
                   </p>
                 </div>
                 <div>
@@ -194,6 +198,27 @@ const PersonalCabinet = () => {
                     {additionalUserInfo?.citStatus || 'Дійсне'}
                   </p>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Internship Section */}
+          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <CardHeader>
+              <CardTitle className="text-white text-xl">Стажування</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div>
+                <p className="text-white text-lg">
+                  {additionalUserInfo?.internship ? (() => {
+                    if (additionalUserInfo.internship === 'Непотрібне') {
+                      return 'Ви були присутні на першому фестивалі і отримали громадянство автоматично, тому вам не довелося проходити стажування. Пишайтесь цим!';
+                    }
+                    const [year, ministry, supervisorPassport] = additionalUserInfo.internship.split(', ');
+                    const supervisorInfo = getUserDetails('', supervisorPassport);
+                    return `Стажування пройдено: ${year}, міністерство: ${ministry}, поручитель: ${supervisorInfo?.firstName || ''} ${supervisorInfo?.surname || ''}`;
+                  })() : 'Інформація відсутня'}
+                </p>
               </div>
             </CardContent>
           </Card>

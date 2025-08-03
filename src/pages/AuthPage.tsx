@@ -78,16 +78,6 @@ const AuthPage = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">
                     Доступ до особистого кабінету та певних сторінок сайту є тільки у громадян Республіки.
-                    <br />
-                    <br />
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-festival-blue mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-muted-foreground">
-                    Під час першого входу особистий кабінет може завантажуватися довше. Це нормально.
                   </p>
                 </div>
               </div>
