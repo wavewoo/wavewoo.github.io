@@ -22,7 +22,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Міністр культури",
     citStatus: "Дійсне",
-    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023, 2024"
+    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023, 2024",
+    internship: "Непотрібне"
   },
   { 
     surname: "ЗАХАРЯК", 
@@ -33,7 +34,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр цифрової трансформації",
     citStatus: "Дійсне",
-    attendance: "2014, 2015, 2016, 2018, 2019, 2020, 2021, 2022, 2023"
+    attendance: "2014, 2015, 2016, 2018, 2019, 2020, 2021, 2022, 2023",
+    internship: "Непотрібне"
   },
   { 
     surname: "ПРИШЛЯК", 
@@ -44,7 +46,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр охорони здоров'я",
     citStatus: "Заморожене",
-    attendance: "2014, 2019, 2021"
+    attendance: "2014, 2019, 2021",
+    internship: "Непотрібне"
   },
   { 
     surname: "КРАВЦОВ", 
@@ -55,7 +58,9 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр фінансів",
     citStatus: "Дійсне",
-    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+    attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    internship: "Непотрібне",
+    maritalStatus: "МЙ0006; 2025-07-26"
   },
   { 
     surname: "ВОВКІВ", 
@@ -66,7 +71,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр енергетики",
     citStatus: "Дійсне",
-    attendance: "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+    attendance: "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    internship: "Непотрібне"
   },
   { 
     surname: "АНДРУШКО", 
@@ -75,9 +81,10 @@ export const AUTHORIZED_USERS = [
     birthDate: "1998-09-30",
     citizenshipDate: "2018-08-18",
     passportDate: "2022-07-29",
-    status: "???",
+    status: "Бібліотекарка",
     citStatus: "Дійсне",
-    attendance: "2016, 2018, 2019, 2020, 2021, 2022, 2023"
+    attendance: "2016, 2018, 2019, 2020, 2021, 2022, 2023",
+    internship: "Непотрібне"
   },
   { 
     surname: "БОКАЛО", 
@@ -89,6 +96,7 @@ export const AUTHORIZED_USERS = [
     status: "Міністр господарства",
     citStatus: "Дійсне",
     attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    internship: "Непотрібне",
     maritalStatus: "ЛБ0002; 2021-07-23"
   },
   { 
@@ -101,6 +109,7 @@ export const AUTHORIZED_USERS = [
     status: "Міністр брендингу",
     citStatus: "Дійсне",
     attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+    internship: "Непотрібне",
     maritalStatus: "ЛБ0001; 2021-07-23"
   },
   { 
@@ -112,7 +121,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр закордонних справ",
     citStatus: "Заморожене",
-    attendance: "2021, 2022"
+    attendance: "2021, 2022",
+    internship: "2021, Охорони здоров'я, НС0006"
   },
   { 
     surname: "НИЖНИК", 
@@ -124,7 +134,7 @@ export const AUTHORIZED_USERS = [
     status: "Заступниця міністра господарства",
     citStatus: "Дійсне",
     attendance: "2021, 2022, 2023, 2024, 2025",
-    internship: "2021, у міністерстві господарства, ЛБ0001"
+    internship: "2021, Господарства, ЛБ0001"
   },
   { 
     surname: "ГНАТКІВ", 
@@ -135,7 +145,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2022-07-29",
     status: "Міністр благоустрою та охорони довкілля",
     citStatus: "Дійсне",
-    attendance: "2021, 2022, 2023, 2024, 2025"
+    attendance: "2021, 2022, 2023, 2024, 2025",
+    internship: "2021, Енергетики, ВС0004"
   },
   { 
     surname: "ПАХАЛЮК", 
@@ -146,7 +157,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Заступник міністра культури",
     citStatus: "Дійсне",
-    attendance: "2022, 2023"
+    attendance: "2022, 2023",
+    internship: "2022, Енергетики, ВС0004"
   },
   { 
     surname: "ЛІЩУК", 
@@ -157,7 +169,9 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Заступниця міністра енергетики",
     citStatus: "Дійсне",
-    attendance: "2022, 2023, 2024, 2025"
+    attendance: "2022, 2023, 2024, 2025",
+    internship: "2022, Брендингу, ЛБ0002",
+    maritalStatus: "НС0007; 2025-07-26"
   },
   { 
     surname: "ГУК", 
@@ -168,7 +182,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "В.о. міністра охорони здоров’я",
     citStatus: "Дійсне",
-    attendance: "2022, 2023"
+    attendance: "2022, 2023",
+    internship: "2022, Юстиції, НС0001"
   },
   { 
     surname: "ЙОЖИК", 
@@ -179,7 +194,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Міністр Татишо",
     citStatus: "Дійсне",
-    attendance: "2022, 2023, 2024, 2025"
+    attendance: "2022, 2023, 2024, 2025",
+    internship: "2022, Культури, НС0002"
   },
   { 
     surname: "ТЕРЛЕЦЬКА", 
@@ -190,7 +206,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Заступниця міністра господарства",
     citStatus: "Дійсне",
-    attendance: "2022, 2023, 2024"
+    attendance: "2022, 2023, 2024",
+    internship: "2022, Бібліотека, ВС0005"
   },
   { 
     surname: "ГАРБОВСЬКА", 
@@ -201,7 +218,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Заступниця міністра брендингу",
     citStatus: "Дійсне",
-    attendance: "2022, 2023, 2024, 2025"
+    attendance: "2022, 2023, 2024, 2025",
+    internship: "2022, Брендингу, ЛБ0002"
   },
   { 
     surname: "КРИВАНЧИК", 
@@ -212,7 +230,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2024-07-19",
     status: "Заступниця міністра цифрової трансформації",
     citStatus: "Дійсне",
-    attendance: "2023, 2024"
+    attendance: "2023, 2024",
+    internship: "2023, Культури, НС0002"
   },
   { 
     surname: "МАТКІВСЬКА", 
@@ -223,7 +242,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "Заступниця міністра юстиції",
     citStatus: "Дійсне",
-    attendance: "2022, 2025"
+    attendance: "2022, 2025",
+    internship: "2022, Юстиції, НС0001"
   },
   { 
     surname: "ПАГУТА", 
@@ -234,7 +254,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "Заступник міністра юстиції",
     citStatus: "Дійсне",
-    attendance: "2023, 2025"
+    attendance: "2023, 2025",
+    internship: "2023, Юстиції, НС0001"
   },
   { 
     surname: "СОПОТНИЦЬКА", 
@@ -245,7 +266,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "???",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Охорони довкілля, МЙ0004"
   },
   { 
     surname: "ХОРОШУЛІНА",
@@ -256,7 +278,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "???",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Брендингу, ЛБ0002"
   },
   { 
     surname: "ПЕТРУК", 
@@ -267,18 +290,20 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "Заступниця міністра фінансів",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Фінансів, НС0007"
   },
   { 
     surname: "ПАСТУШЕНКО", 
     passport: "МЙ0019",
-    firstName: "Павлина",
+    firstName: "Андрій",
     birthDate: "1983-04-20",
     citizenshipDate: "2025-07-25",
     passportDate: "2025-07-25",
     status: "Заступник міністра енергетики",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Енергетики, ВС0004"
   },
   { 
     surname: "ЛАЦИНА", 
@@ -289,7 +314,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "???",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Господарства, ЛБ0001"
   },
   { 
     surname: "МИХАЙЛЮК", 
@@ -300,7 +326,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2025-07-25",
     status: "Секретарка міністра юстиції",
     citStatus: "Дійсне",
-    attendance: "2024, 2025"
+    attendance: "2024, 2025",
+    internship: "2024, Юстиції, НС0001"
   },
   { 
     surname: "СЕРІКОВА", 
@@ -311,7 +338,8 @@ export const AUTHORIZED_USERS = [
     passportDate: "2023-07-14",
     status: "Заступниця міністра культури",
     citStatus: "Дійсне",
-    attendance: "2022, 2023"
+    attendance: "2022, 2023",
+    internship: "2022, Охорони довкілля, МЙ0004"
   }
 ];
 // List of informational users (not authorized for login)
@@ -411,7 +439,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2021"
+    attendance: "2021",
+    internship: "2021, Управління флоту"
   },
   {
     surname: "ЯРЧУК",
@@ -419,7 +448,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2023"
+    attendance: "2023",
+    internship: "2023, Охорони здоров'я, МЙ0007"
   },
   {
     surname: "КОВАЛЬЧУК",
@@ -427,7 +457,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2023"
+    attendance: "2023",
+    internship: "2023, Охорони здоров'я, МЙ0007"
   },
   {
     surname: "ПАХАЛЮК",
@@ -435,7 +466,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2023"
+    attendance: "2023",
+    internship: "2023, Охорони довкілля, МЙ0004"
   },
   {
     surname: "ЛЮТИК",
@@ -443,7 +475,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Культури, НС0002"
   },
   {
     surname: "ПОХОДЖАЙ",
@@ -451,7 +484,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Брендингу, ЛБ0002"
   },
   {
     surname: "ЯГОЦЬКИЙ",
@@ -459,7 +493,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Юстиції, НС0001"
   },
   {
     surname: "ПЛЯЦКО",
@@ -467,7 +502,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Господарства, ЛБ0001"
   },
   {
     surname: "ПЛЯЦКО",
@@ -475,7 +511,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Енергетики, ВС0004"
   },
   {
     surname: "КОНИК",
@@ -483,7 +520,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Культури, НС0002"
   },
   {
     surname: "НЕДЯЛКІНА",
@@ -491,7 +529,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2024"
+    attendance: "2024",
+    internship: "2024, Культури, НС0002"
   },
   {
     surname: "БАНДРІВСЬКИЙ",
@@ -499,7 +538,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2025"
+    attendance: "2025",
+    internship: "2025, Господарства, ЛБ0001"
   },
   {
     surname: "МИКИТИН",
@@ -507,7 +547,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2025"
+    attendance: "2025",
+    internship: "2025, Юстиції, НС0001"
   },
   {
     surname: "РУДИК",
@@ -515,7 +556,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1900-01-01",
     status: "---",
     citStatus: "Недійсне",
-    attendance: "2025"
+    attendance: "2025",
+    internship: "2025, Охорони довкілля, МЙ0004"
   }
 ];
 

@@ -150,25 +150,25 @@ const NextFestival = () => {
                 <div>
                   <h4 className="font-bold text-festival-blue mb-2">🎵 1</h4>
                   <p className="text-muted-foreground mb-4">
-                    123
+                    Буде музика. Детальніше потім
                   </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-festival-blue mb-2">🏛️ 2</h4>
                   <p className="text-muted-foreground mb-4">
-                    123
+                    Будуть міністерства. Детальніше потім
                   </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-festival-blue mb-2">🎪 3</h4>
                   <p className="text-muted-foreground mb-4">
-                    123
+                    Будуть розваги. Детальніше потім
                   </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-festival-blue mb-2">🌱 4</h4>
                   <p className="text-muted-foreground mb-4">
-                    123
+                    Буде їжа. Детальніше потім
                   </p>
                 </div>
               </div>
@@ -185,11 +185,10 @@ const NextFestival = () => {
             </CardHeader>
             <CardContent>
               <p className="text-lg mb-4">
-                Перелік <strong>перелік</strong>
+                <strong>Перелік майбутніх жителів буде поповнюватися тут</strong>
               </p>
               <p className="text-muted-foreground mb-6">
-                перелік123.
-                Перелік
+                Набір жителів ще не розпочався
               </p>
             </CardContent>
           </Card>

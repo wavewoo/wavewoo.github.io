@@ -491,7 +491,10 @@ const Index = () => {
       <FestivalSection id="gallery" title="Галерея" backgroundColor="muted">
         <div className="max-w-6xl mx-auto">
           <p className="text-center text-lg text-muted-foreground mb-12">
-            Перегляньте фотографії з різних років проведення фестивалю
+            Перегляньте фотографії з різних років проведення фестивалю.
+            <br />
+            Увага! Повна галерея (що доступна за посиланням для громадян Республіки) все ще поповнюється і поки включає тільки фото (не відео), які були публічно поширені 
+            у організаційних групах. Якшо ви хочете поповнити галерею, зверніться до адміністрації
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">

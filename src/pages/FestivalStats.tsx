@@ -56,7 +56,7 @@ const getRandomImageForYear = (year: number): string => {
     2025: [
       { candidate: "Аліна Ліщук", votes: 9, party: "Енергетики", color: "#EC4899" },
       { candidate: "Світлана Петрук", votes: 8, party: "Фінансів", color: "#8B5CF6" },
-      { candidate: "НЕДІЙСНІ ГОЛОСИ", votes: 1, party: "Центристи", color: "#10B981" },
+      { candidate: "НЕДІЙСНІ ГОЛОСИ", votes: 1, party: "НЕДІЙСНІ ГОЛОСИ", color: "#10B981" },
     ],
   };
 
@@ -182,7 +182,7 @@ const getRandomImageForYear = (year: number): string => {
         <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
         <ul style="padding-left: 1.5em; list-style-type: disc;">
           <li>Фестиваль 2023-го року ознаменувався дуже активним політичним сезоном. Звинувачення (як багато хто зазначає, безпідставні) кампанії заступниці
-          міністра господарства могли повпливати на кінцевий результат виборів.</li>
+          міністра господарства у спробах державного перевороту могли повпливати на кінцевий результат виборів.</li>
         </ul>
       `
     },

@@ -3,19 +3,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
-import { User, LogOut, Home, Shield, Calendar, FileText, Award, Camera } from 'lucide-react';
-import { getUserDetails } from '@/lib/supabase';
-// Import the passport photos data
+import { User, LogOut, Home, Shield, Calendar, FileText, Award, Camera, Gem, SquareCheckBig, ChevronDown, ChevronUp, Users } from 'lucide-react';
+import { getUserDetails, AUTHORIZED_USERS, ALL_USERS } from '@/lib/supabase';
 import { getPassportPhoto } from '@/data/passportPhotos';
+import { useState } from 'react';
 
 const PersonalCabinet = () => {
   const { user, userProfile, signOut, loading } = useAuth();
   const navigate = useNavigate();
+  const [showInterns, setShowInterns] = useState(false);
 
     if (loading || !userProfile) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-festival-blue via-festival-blue/90 to-festival-yellow/20 flex items-center justify-center">
-        <div className="text-white text-xl">Завантаження...</div>
+        <div className="text-white text-xl">Завантаження... Якщо довго нічого не відбувається, оновіть сторінку</div>
       </div>
     );
   }
@@ -24,9 +25,31 @@ const PersonalCabinet = () => {
   const additionalUserInfo = userProfile ? 
     getUserDetails(userProfile?.surname, userProfile?.passport) : null;
 
+  // Helper function to find user by passport only
+  const getUserByPassport = (passport: string) => {
+    return AUTHORIZED_USERS?.find(user => user.passport === passport.trim());
+  };
+
   // Get user's passport photo
   const passportPhoto = userProfile ? 
     getPassportPhoto(userProfile.passport) : null;
+
+  // Find interns supervised by current user
+  const getMyInterns = () => {
+    if (!userProfile?.passport) return [];
+    
+    return ALL_USERS.filter(user => {
+      if (!user.internship) return false;
+      const internshipParts = user.internship.split(', ');
+      return internshipParts.length >= 3 && internshipParts[2] === userProfile.passport;
+    }).sort((a, b) => {
+      const yearA = parseInt(a.internship?.split(', ')[0] || '0');
+      const yearB = parseInt(b.internship?.split(', ')[0] || '0');
+      return yearA - yearB; // Sort ascending (oldest first)
+    });
+  };
+
+  const myInterns = getMyInterns();
 
   const handleSignOut = async () => {
     await signOut();
@@ -76,7 +99,7 @@ const PersonalCabinet = () => {
               </p>
               <div className="flex items-center gap-3">
                 <Badge variant="secondary" className="bg-festival-yellow text-festival-blue font-semibold">
-                  <Shield className="w-4 h-5 mr-2" />
+                  <SquareCheckBig className="w-4 h-5 mr-2" />
                   Громадянин Республіки Вейву
                 </Badge>
                 <br />
@@ -181,12 +204,15 @@ const PersonalCabinet = () => {
                   </div>
                 )}
                 <div>
-                  <label className="text-white/70 text-sm font-medium">Сімейний стан</label>
+                  <label className="text-white/70 text-sm font-medium flex items-center gap-2">
+                    <Gem className="w-4 h-4" />
+                    Сімейний стан
+                  </label>
                   <p className="text-white text-lg mt-1">
                     {additionalUserInfo?.maritalStatus ? (() => {
                       const [spousePassport, marriageDate] = additionalUserInfo.maritalStatus.split('; ');
-                      const spouseInfo = getUserDetails('', spousePassport);
-                      return `Шлюб з ${spouseInfo?.firstName || ''} ${spouseInfo?.surname || ''}, паспорт ${spousePassport} зареєстровано ${new Date(marriageDate).toLocaleDateString('uk-UA')}`;
+                      const spouseInfo = getUserByPassport(spousePassport);
+                      return `Шлюб з ${spouseInfo?.firstName || ''} ${spouseInfo?.surname || ''} (паспорт ${spousePassport}), зареєстровано ${new Date(marriageDate).toLocaleDateString('uk-UA')}`;
                     })() : 'Вільний'}
                   </p>
                 </div>
@@ -208,18 +234,120 @@ const PersonalCabinet = () => {
               <CardTitle className="text-white text-xl">Стажування</CardTitle>
             </CardHeader>
             <CardContent>
-              <div>
-                <p className="text-white text-lg">
-                  {additionalUserInfo?.internship ? (() => {
-                    if (additionalUserInfo.internship === 'Непотрібне') {
-                      return 'Ви були присутні на першому фестивалі і отримали громадянство автоматично, тому вам не довелося проходити стажування. Пишайтесь цим!';
-                    }
-                    const [year, ministry, supervisorPassport] = additionalUserInfo.internship.split(', ');
-                    const supervisorInfo = getUserDetails('', supervisorPassport);
-                    return `Стажування пройдено: ${year}, міністерство: ${ministry}, поручитель: ${supervisorInfo?.firstName || ''} ${supervisorInfo?.surname || ''}`;
-                  })() : 'Інформація відсутня'}
-                </p>
+              {additionalUserInfo?.internship ? (() => {
+                if (additionalUserInfo.internship === 'Непотрібне') {
+                  return (
+                    <div className="bg-green-500/20 border border-green-500/40 text-white text-lg font-semibold p-4 rounded-lg text-center mb-6">
+                      🎉 Ви отримали громадянство до впровадження інституту стажування, тому вам не довелося його проходити. Пишайтесь цим!
+                    </div>
+                  );
+                }
+                const internshipParts = additionalUserInfo.internship.split(', ');
+                const year = internshipParts[0];
+                const ministry = internshipParts[1];
+                const supervisorPassport = internshipParts[2];
+                
+                const supervisorInfo = supervisorPassport ? getUserByPassport(supervisorPassport) : null;
+                return (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <label className="text-white/70 text-sm font-medium flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        Рік стажування
+                      </label>
+                      <p className="text-white text-lg font-semibold mt-1">{year}</p>
+                    </div>
+                    <div>
+                      <label className="text-white/70 text-sm font-medium flex items-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        Міністерство
+                      </label>
+                      <p className="text-white text-lg font-semibold mt-1">{ministry}</p>
+                    </div>
+                    <div>
+                      <label className="text-white/70 text-sm font-medium flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        Поручитель
+                      </label>
+                      <p className={`text-lg font-semibold mt-1 ${!supervisorPassport ? 'text-red-400' : 'text-white'}`}>
+                        {!supervisorPassport ? 
+                          'Поручитель не має дійсного паспорта нового зразка' : 
+                          `${supervisorInfo?.firstName || ''} ${supervisorInfo?.surname}`
+                        }
+                      </p>
+                    </div>
+                  </div>
+                );
+              })() : (
+                <div className="bg-yellow-500/20 border border-yellow-500/40 text-white text-lg p-4 rounded-lg text-center mb-6">
+                  Інформація про ваше стажування відсутня у державних реєстрах. Повідомте державні органи, якщо це помилка
+                </div>
+              )}
+
+              {/* My Interns Button */}
+              <div className="w-full">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowInterns(!showInterns)}
+                  className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20 h-auto py-4 flex items-center justify-center gap-2"
+                >
+                  <Users className="w-5 h-5" />
+                  <span className="font-semibold">Мої стажери</span>
+                  {showInterns ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </Button>
               </div>
+
+              {/* Interns List - Collapsible */}
+              {showInterns && (
+                <div className="mt-6 space-y-4">
+                  {myInterns.length > 0 ? (
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-4">
+                      <h4 className="text-white text-lg font-semibold mb-4">Ваші минулі стажери:</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-white">
+                          <thead>
+                            <tr className="border-b border-white/20">
+                              <th className="text-left py-2 px-3 text-white/70 font-medium">Ім'я та прізвище</th>
+                              <th className="text-left py-2 px-3 text-white/70 font-medium">Рік стажування</th>
+                              <th className="text-left py-2 px-3 text-white/70 font-medium">Статус громадянства</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {myInterns.map((intern, index) => {
+                              const internshipParts = intern.internship?.split(', ') || [];
+                              const internshipYear = internshipParts[0] || 'Невідомо';
+                              
+                              return (
+                                <tr key={index} className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                  <td className="py-3 px-3 font-medium">
+                                    {intern.firstName} {intern.surname}
+                                  </td>
+                                  <td className="py-3 px-3">
+                                    {internshipYear}
+                                  </td>
+                                  <td className="py-3 px-3">
+                                    <span className={`font-semibold ${
+                                      intern.citStatus === 'Дійсне' ? 'text-green-300' :
+                                      intern.citStatus === 'Заморожене' ? 'text-yellow-300' :
+                                      'text-red-300'
+                                    }`}>
+                                      {intern.citStatus || 'Невідомо'}
+                                    </span>
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="bg-blue-500/20 border border-blue-500/40 text-white text-lg p-4 rounded-lg text-center">
+                      У вас поки що не було стажерів. Не бійтеся брати на стажування осіб, у яких бачите потенціал!
+                    </div>
+                  )}
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -263,7 +391,7 @@ const PersonalCabinet = () => {
             </CardContent>
           </Card>
 
-          {/* Quick Actions - keeping the same */}
+          {/* Quick Actions */}
           <Card className="bg-white/10 backdrop-blur-sm border-white/20">
             <CardHeader>
               <CardTitle className="text-white text-xl">Швидкі дії</CardTitle>
