@@ -3,10 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
-import { User, LogOut, Home, Shield, Calendar, FileText, Award, Camera, Gem, SquareCheckBig, ChevronDown, ChevronUp, Users } from 'lucide-react';
+import { User, LogOut, Home, Shield, Calendar, FileText, Award, Camera, Gem, SquareCheckBig, ChevronDown, ChevronUp, Users, Download } from 'lucide-react';
 import { getUserDetails, AUTHORIZED_USERS, ALL_USERS } from '@/lib/supabase';
 import { getPassportPhoto } from '@/data/passportPhotos';
 import { useState } from 'react';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const PersonalCabinet = () => {
   const { user, userProfile, signOut, loading } = useAuth();
@@ -54,6 +56,86 @@ const PersonalCabinet = () => {
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
+  };
+
+  const generatePDF = async () => {
+    // Create a temporary HTML element with the certificate content
+    const tempDiv = document.createElement('div');
+    tempDiv.style.position = 'absolute';
+    tempDiv.style.left = '-9999px';
+    tempDiv.style.width = '210mm'; // A4 width
+    tempDiv.style.padding = '20mm';
+    tempDiv.style.fontFamily = 'Arial, sans-serif';
+    tempDiv.style.backgroundColor = 'white';
+    tempDiv.style.color = 'black';
+    
+    const currentDate = new Date().toLocaleDateString('uk-UA');
+    const firstName = additionalUserInfo?.firstName || '';
+    const surname = userProfile?.surname || '';
+    
+    tempDiv.innerHTML = `
+      <div style="text-align: center; margin-bottom: 80px;">
+        <img src="/coat-of-arms.jpg" style="width: 180px; height: 180px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;" onerror="this.style.display='none'" />
+        <h1 style="font-size: 26px; font-weight: bold; margin: 0 0 10px 0;">Республіка Вейву</h1>
+        <h2 style="font-size: 22px; font-weight: bold; margin: 0;">ДОВІДКА</h2>
+      </div>
+  
+      <div style="font-size: 16px; line-height: 1.6; margin-bottom: 30px; text-align: justify; text-indent: 50px;">
+        Ця довідка підтверджує, що ${firstName} ${surname} станом на ${currentDate} дійсно є громадянином/громадянкою Республіки Вейву і є вищим/вищою і кращим/кращою за всіх інших людей на світі. Довідка дає право на лікарняний, відпустку, підвищення зарплати, виграш спорів, прийняття пропозиції зустрічатися, усі інші можливі блага по всьому Всесвіту і зобов'язана прийматися і визнаватися усіма установами та організаціями, а також фізичними особами.
+      </div>
+  
+      <div style="font-size: 12px; line-height: 1.4; margin-bottom: 30px; font-style: italic;">
+        УВАГА! Ця довідка призначена для пред'явлення у інших державах та НЕ заміняє паспорт громадянина Республіки Вейву і НЕ дозволяє в'їзду у Республіку Вейву.
+      </div>
+  
+      <div style="font-size: 16px; display: flex; margin-bottom: 30px; justify-content: space-between;">
+        <span>${currentDate}</span>
+        <span>Міністерство юстиції Республіки Вейву</span>
+      </div>
+
+      <div style="font-size: 12px; margin-bottom: 10px;">
+        wavewoo.github.io
+      </div>
+    `;
+    
+    document.body.appendChild(tempDiv);
+    
+    try {
+      // Convert HTML to canvas
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff'
+      });
+      
+      // Create PDF
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const imgData = canvas.toDataURL('image/png');
+      
+      // Calculate dimensions to fit A4
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const pdfHeight = doc.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const scaledWidth = imgWidth * ratio;
+      const scaledHeight = imgHeight * ratio;
+      
+      // Center the image
+      const x = (pdfWidth - scaledWidth) / 2;
+      const y = (pdfHeight - scaledHeight) / 2;
+      
+      doc.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
+      doc.save(`dovídka_${firstName}_${surname}.pdf`);
+      
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Помилка при генерації PDF. Спробуйте ще раз.');
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
   };
 
   return (
@@ -387,6 +469,31 @@ const PersonalCabinet = () => {
                     </div>
                   );
                 })}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Електронна Республіка */}
+          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <CardHeader>
+              <CardTitle className="text-white text-xl">Електронна Республіка</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="w-full">
+                {additionalUserInfo?.citStatus === 'Заморожене' ? (
+                  <div className="bg-red-500/30 border border-red-500/50 text-white text-md font-semibold p-4 rounded-lg text-center">
+                    Ви не можете генерувати документи, оскільки ваше громадянство заморожене!
+                  </div>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    onClick={generatePDF}
+                    className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20 h-auto py-4 flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span className="font-semibold">Завантажити довідку про вищість</span>
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>
