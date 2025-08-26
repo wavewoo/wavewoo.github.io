@@ -85,7 +85,7 @@ const PersonalCabinet = () => {
       </div>
   
       <div style="font-size: 12px; line-height: 1.4; margin-bottom: 30px; font-style: italic;">
-        УВАГА! Ця довідка призначена для пред'явлення у інших державах та НЕ заміняє паспорт громадянина Республіки Вейву і НЕ дозволяє в'їзду у Республіку Вейву.
+        УВАГА! Ця довідка призначена для пред'явлення у інших державах та НЕ заміняє паспорт громадянина Республіки Вейву і НЕ дозволяє в'їзд у Республіку Вейву.
       </div>
   
       <div style="font-size: 16px; display: flex; margin-bottom: 30px; justify-content: space-between;">
@@ -127,7 +127,7 @@ const PersonalCabinet = () => {
       const y = (pdfHeight - scaledHeight) / 2;
       
       doc.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
-      doc.save(`dovídka_${firstName}_${surname}.pdf`);
+      doc.save(`dovidka_${firstName}_${surname}.pdf`);
       
     } catch (error) {
       console.error('Error generating PDF:', error);

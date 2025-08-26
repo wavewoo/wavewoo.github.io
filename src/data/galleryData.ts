@@ -1,5 +1,3 @@
-// Gallery data with actual photo imports for years with photos
-// For other years, you can add your own photos following this structure
 
 // 2014 Photos
 import festival2014_1 from "@/assets/gallery/2014/1.jpg";

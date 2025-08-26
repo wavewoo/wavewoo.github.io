@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, Users, Star, ArrowLeft } from "lucide-react";
@@ -9,8 +10,12 @@ const NextFestival = () => {
   const navigate = useNavigate();
   const { isAuthenticated, loading } = useAuth();
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleAuthSuccess = () => {
-    // Authentication is now handled by the context
   };
 
   if (loading) {

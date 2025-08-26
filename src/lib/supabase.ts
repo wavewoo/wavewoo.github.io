@@ -351,7 +351,6 @@ export const INFORMATIONAL_USERS = [
     status: "---",
     citStatus: "Недійсне",
     attendance: "2014"
-    // Note: no passport field - this prevents login
   },
   {
     surname: "КІНДРАТІВ",

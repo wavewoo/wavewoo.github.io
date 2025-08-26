@@ -66,8 +66,8 @@ const scrollToSection = (sectionId: string) => {
                 onClick={() => scrollToSection(item.id)}
                 className={`transition-colors duration-300 ${
                   isScrolled 
-                    ? 'text-festival-blue hover:text-festival-yellow' 
-                    : 'text-white hover:text-festival-yellow'
+                    ? 'text-festival-blue hover:text-festival-blue' 
+                    : 'text-white hover:text-festival-blue'
                 }`}
               >
                 {item.label}
