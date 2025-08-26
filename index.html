@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <script type="module" crossorigin src="/assets/index-CjygYUXW.js"></script>
+    <script type="module" crossorigin src="/assets/index-BoUZPqJr.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CxxtRvLy.css">
   </head>
 
@@ -35,9 +35,9 @@
         if (l.search[1] === '/' ) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
-          }).join('&');
+          }).join('?');
           window.history.replaceState(null, null,
-              l.pathname + decoded + l.hash
+              l.pathname.slice(0, -1) + decoded + l.hash
           );
         }
       }(window.location))
