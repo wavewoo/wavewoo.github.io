@@ -519,6 +519,7 @@ const Index = () => {
                   detailedContent={symbol.detailedContent}
                   image={symbol.image}
                   audio={symbol.audio}
+                  downloadFiles={symbol.downloadFiles}
                 >
                   <div className="text-center cursor-pointer hover:scale-105 transition-transform duration-300 p-6 bg-white rounded-lg border-2 border-transparent hover:border-festival-yellow">
                     <div className="text-6xl mb-6">{symbol.icon}</div>
@@ -590,11 +591,15 @@ const Index = () => {
               <p className="text-festival-yellow mb-6">
                 Територія твоєї свободи
               </p>
+
               <div className="flex justify-center space-x-6 text-2xl">
                 <span className="cursor-pointer hover:text-festival-yellow transition-colors">📧</span>
                 <span className="cursor-pointer hover:text-festival-yellow transition-colors">📱</span>
                 <span className="cursor-pointer hover:text-festival-yellow transition-colors">🌐</span>
               </div>
+              <p className="text-xs text-gray-300 mb-2 mt-4">
+                Версія 2.2.8
+              </p>
             </div>
           </footer>
         </div>

@@ -52,10 +52,17 @@ const FestivalHero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-festival-blue/70 via-festival-blue/50 to-festival-blue/70" />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="mb-8">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-16 2xl:pt-0">
+        <div className="mb-8 sm:mb-10 md:mb-12">
           <div 
-            className={`relative mx-auto mb-6 w-64 h-64 md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px] group cursor-pointer ${isClicked ? 'animate-pulse' : ''}`}
+            className={`relative mx-auto mb-6 
+              w-56 h-56 
+              sm:w-64 sm:h-64 
+              md:w-72 md:h-72 
+              lg:w-80 lg:h-80 
+              xl:w-[420px] xl:h-[420px] 
+              2xl:w-[500px] 2xl:h-[500px]
+              group cursor-pointer ${isClicked ? 'animate-pulse' : ''}`}
             onClick={handleEmblemClick}
           >
             {/* Ripple effect */}
@@ -105,20 +112,20 @@ const FestivalHero = () => {
           </div>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-lg">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 drop-shadow-lg">
           Республіка Вейву
         </h1>
         
-        <p className="text-xl md:text-2xl text-festival-yellow mb-12 drop-shadow-md font-medium">
+        <p className="text-lg sm:text-xl md:text-2xl text-festival-yellow mb-8 md:mb-12 drop-shadow-md font-medium">
           Територія твоєї свободи
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
           <Button 
             variant="hero" 
             size="lg"
             onClick={() => scrollToSection('about')}
-            className="text-lg px-8 py-4 min-w-[200px]"
+            className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4 min-w-[180px] md:min-w-[200px]"
           >
             Про Вейву
           </Button>
@@ -127,7 +134,7 @@ const FestivalHero = () => {
             variant="hero-outline" 
             size="lg"
             onClick={() => scrollToSection('next-festival')}
-            className="text-lg px-8 py-4 min-w-[200px]"
+            className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4 min-w-[180px] md:min-w-[200px]"
           >
             Наступний фестиваль
           </Button>

@@ -4,6 +4,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
@@ -35,9 +36,11 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
             <span className="text-4xl">{icon}</span>
             {title}
           </DialogTitle>
+          <DialogDescription className="text-muted-foreground mb-4 text-lg">
+            {description}
+          </DialogDescription>
         </DialogHeader>
         <div className="mt-6">
-          <p className="text-muted-foreground mb-4 text-lg">{description}</p>
           
           {image && (
             <div className="mb-6 text-center">
@@ -58,7 +61,7 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
             <p className="leading-relaxed whitespace-pre-line">{detailedContent}</p>
           </div>
           
-          {downloadFiles && downloadFiles.length > 0 && (
+          {downloadFiles && downloadFiles.length > 0 ? (
             <div className="mt-6 flex justify-center gap-3 flex-wrap">
               {downloadFiles.map((file, index) => (
                 <Button 
@@ -79,9 +82,7 @@ const SymbolModal = ({ title, description, icon, children, detailedContent, imag
                 </Button>
               ))}
             </div>
-          )}
-          
-          {!downloadFiles && (image || audio) && (
+          ) : (image || audio) && (
             <div className="mt-6 flex justify-center">
               <Button 
                 variant="hero"
