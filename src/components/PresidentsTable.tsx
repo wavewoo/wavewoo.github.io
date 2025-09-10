@@ -1,16 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ALL_USERS } from '@/lib/supabase';
+
+interface President {
+  period: string;
+  name: string;
+  achievements: string;
+}
 
 const PresidentsTable = () => {
-  const [hoveredRow, setHoveredRow] = useState(null);
-  
-  // Sample presidents data - you can customize this
-  const presidentsData = [
-    { period: "2022", name: "Наталія Кіндратів", achievements: "Не прибула на фестиваль правління" },
-    { period: "2023", name: "Юра Бокало", achievements: "" },
-    { period: "2024", name: "Назарій Вовків", achievements: "" },
-    { period: "2025", name: "Назар Задорожний", achievements: "" },
-    { period: "2026", name: "Аліна Ліщук", achievements: "" },
-  ];
+  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
+  const [presidentsData, setPresidentsData] = useState<President[]>([]);
+
+  useEffect(() => {
+    // Extract presidents from AUTHORIZED_USERS
+    const presidents: President[] = [];
+    
+    ALL_USERS.forEach(user => {
+      if (user.president) {
+        const fullName = `${user.firstName} ${user.surname}`;
+        
+        // Handle special cases for achievements/notes
+        let achievements = "";
+        
+        // Use this to add info to achievements section
+        if (user.surname === "КІНДРАТІВ" && user.president === "2022") {
+          achievements = "Не прибула на фестиваль правління";
+        }
+        
+        presidents.push({
+          period: user.president,
+          name: fullName,
+          achievements: achievements
+        });
+      }
+    });
+
+    // Sort by year (period)
+    presidents.sort((a, b) => parseInt(a.period) - parseInt(b.period));
+    
+    setPresidentsData(presidents);
+  }, []);
+
+  // Function to decode Cyrillic text (if needed)
+  const decodeCyrillic = (text: string): string => {
+    try {
+      // The text appears to be URL-encoded Cyrillic
+      return decodeURIComponent(text.replace(/Ð/g, '%D0').replace(/Ñ/g, '%D1'));
+    } catch (error) {
+      // If decoding fails, return original text
+      return text;
+    }
+  };
 
   return (
     <div className="w-full max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6 mt-8">
@@ -61,7 +101,7 @@ const PresidentsTable = () => {
                     hoveredRow === index ? 'text-festival-blue font-bold' : 'text-gray-800'
                   }`}
                 >
-                  {president.name}
+                  {decodeCyrillic(president.name)}
                 </td>
                 <td 
                   className={`border border-gray-300 px-4 py-3 transition-all duration-300 ${
@@ -79,15 +119,15 @@ const PresidentsTable = () => {
       {/* Additional info */}
       <div className="mt-6 p-4 bg-festival-yellow/10 rounded-lg">
         <p className="text-sm text-gray-600 text-center">
-          💡  Якщо ви помітили неточність або помилку, повідомте про неї.
+          💡 Дані автоматично завантажуються з бази користувачів ({presidentsData.length} президентів знайдено)
         </p>
       </div>
       
       {/* Hover tooltip */}
-      {hoveredRow !== null && (
+      {hoveredRow !== null && presidentsData[hoveredRow] && (
         <div className="fixed top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-lg shadow-lg p-3 z-50 max-w-xs">
           <div className="text-sm font-bold text-festival-blue mb-1">
-            {presidentsData[hoveredRow].name}
+            {decodeCyrillic(presidentsData[hoveredRow].name)}
           </div>
           <div className="text-xs text-gray-600">
             Правив у {presidentsData[hoveredRow].period}

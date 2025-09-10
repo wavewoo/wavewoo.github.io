@@ -598,7 +598,7 @@ const Index = () => {
                 <span className="cursor-pointer hover:text-festival-yellow transition-colors">🌐</span>
               </div>
               <p className="text-xs text-gray-300 mb-2 mt-4">
-                Версія 2.2.8
+                Версія 2.4
               </p>
             </div>
           </footer>

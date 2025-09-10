@@ -11,7 +11,9 @@ export const AUTHORIZED_USERS = [
     status: "Міністр юстиції",
     citStatus: "Дійсне",
     attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025",
-    internship: "Непотрібне"
+    internship: "Непотрібне",
+    president: "2025",
+    skinnyDip: "Yes"
   },
   { 
     surname: "ПАХАЛЮК", 
@@ -72,7 +74,8 @@ export const AUTHORIZED_USERS = [
     status: "Міністр енергетики",
     citStatus: "Дійсне",
     attendance: "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
-    internship: "Непотрібне"
+    internship: "Непотрібне",
+    president: "2024"
   },
   { 
     surname: "АНДРУШКО", 
@@ -97,7 +100,8 @@ export const AUTHORIZED_USERS = [
     citStatus: "Дійсне",
     attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
     internship: "Непотрібне",
-    maritalStatus: "ЛБ0002; 2021-07-23"
+    maritalStatus: "ЛБ0002; 2021-07-23",
+    president: "2023"
   },
   { 
     surname: "БОКАЛО", 
@@ -171,7 +175,8 @@ export const AUTHORIZED_USERS = [
     citStatus: "Дійсне",
     attendance: "2022, 2023, 2024, 2025",
     internship: "2022, Брендингу, ЛБ0002",
-    maritalStatus: "НС0007; 2025-07-26"
+    maritalStatus: "НС0007; 2025-07-26",
+    president: "2026"
   },
   { 
     surname: "ГУК", 
@@ -358,7 +363,8 @@ export const INFORMATIONAL_USERS = [
     birthDate: "1997-08-17",
     status: "Міністр ЗМІ",
     citStatus: "Заморожене",
-    attendance: "2014, 2019, 2021"
+    attendance: "2014, 2019, 2021",
+    president: "2022"
   },
   {
     surname: "НЕВІДОМО",

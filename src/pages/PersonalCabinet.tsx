@@ -9,6 +9,9 @@ import { getPassportPhoto } from '@/data/passportPhotos';
 import { useState } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { AchievementsSection } from '@/components/gamification/AchievementsSection';
+import { QuizSection } from '@/components/gamification/QuizSection';
+// import { StampCollection } from '@/components/gamification/StampCollection';
 
 const PersonalCabinet = () => {
   const { user, userProfile, signOut, loading } = useAuth();
@@ -472,6 +475,20 @@ const PersonalCabinet = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Achievements Section */}
+          <AchievementsSection 
+            attendedYears={additionalUserInfo?.attendance?.split(',').map(year => parseInt(year.trim())).filter(year => !isNaN(year)) || []}
+            additionalInfo={additionalUserInfo}
+          />
+
+          {/* Quiz Section */}
+          <QuizSection />
+
+          {/* Stamp Collection 
+          <StampCollection 
+            attendedYears={additionalUserInfo?.attendance?.split(',').map(year => parseInt(year.trim())).filter(year => !isNaN(year)) || []}
+          /> */}
 
           {/* Електронна Республіка */}
           <Card className="bg-white/10 backdrop-blur-sm border-white/20">
