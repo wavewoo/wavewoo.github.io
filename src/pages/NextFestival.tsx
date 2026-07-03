@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, Users, Star, ArrowLeft, MessageCircle} from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/AuthModal";
+import FestivalCountdown from "@/components/FestivalCountdown";
 
 const NextFestival = () => {
   const navigate = useNavigate();
@@ -87,14 +88,15 @@ const NextFestival = () => {
         <div className="max-w-4xl mx-auto">
           
           {/* Hero Section */}
-          <div className="text-center mb-12">
-            <div className="text-8xl mb-6">🌲🍖🍻</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-festival-blue mb-4">
+          <div className="text-center mb-12 rounded-2xl p-8 md:p-12 bg-gradient-to-br from-festival-blue via-festival-blue/90 to-festival-blue-light shadow-hero">
+            <div className="text-7xl md:text-8xl mb-6">🌲🍖🍻</div>
+            <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
               Республіка Вейву 2026
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Інформації про Фестиваль-2026 поки немає. Тільки ж Фестиваль-2025 закінчився.
+            <p className="text-xl text-primary-foreground/80 mb-10">
+              Вейву-2026 вже близко! Вся актуальна інформація тут.
             </p>
+            <FestivalCountdown />
           </div>
 
           {/* Key Information Cards */}
@@ -108,7 +110,7 @@ const NextFestival = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-2xl font-bold text-festival-yellow mb-2">
-                  Поки не узгоджено
+                  17-19 липня 2026-го року
                 </p>
                 <p className="text-muted-foreground">
                   Три дні незабутніх вражень у серці Карпат
@@ -125,17 +127,17 @@ const NextFestival = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-2xl font-bold text-festival-yellow mb-2">
-                  Поки не узгоджено
+                  НПП "Сколівські Бескиди", в'їзд з сторони села Майдан
                 </p>
                 <p className="text-muted-foreground">
-                  Місце проведення Республіки Вейву
+                  Клацніть на карту для її збільшення
                 </p>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     className="w-full h-full rounded-md border"
                     loading="lazy"
                     allowFullScreen
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d20794.270709954388!2d23.51009730764161!3d49.34677610635129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sua!4v1753967277887!5m2!1sen!2sua&q=Карпати,Україна"
+                    src="https://maps.google.com/maps?q=49.1138573,23.2799233&z=15&output=embed"
                   ></iframe>
                 </div>
               </CardContent>
@@ -181,27 +183,36 @@ const NextFestival = () => {
             <CardContent>
               <div className="grid md:grid-cols-1 gap-6">
                 <div>
-                  <h4 className="font-bold text-festival-blue mb-2">🎵 1</h4>
+                  <h4 className="font-bold text-festival-blue mb-2">🎵 Музика</h4>
                   <p className="text-muted-foreground mb-4">
-                    Буде музика. Детальніше потім
+                    Республіка заохочує чіл, в тому числі і музику. Буде забезпечено як активний музичний відпочинок (танці), так і 
+                    більш чільний (гітара).
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-festival-blue mb-2">🏛️ 2</h4>
+                  <h4 className="font-bold text-festival-blue mb-2">🏛️ Міністерства</h4>
                   <p className="text-muted-foreground mb-4">
-                    Будуть міністерства. Детальніше потім
+                    Усі активні міністерства продовжують свою роботу. Не забувайте про обов'язок долучатися до життя Республіки 
+                    та допомагати їй усіма активними методами.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-festival-blue mb-2">🎪 3</h4>
+                  <h4 className="font-bold text-festival-blue mb-2">🌱 Харчування</h4>
                   <p className="text-muted-foreground mb-4">
-                    Будуть розваги. Детальніше потім
+                    Харчування жителів цього року забезпечується міністерством Господарства.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-festival-blue mb-2">🌱 4</h4>
+                  <h4 className="font-bold text-festival-blue mb-2">💵 Податковий збір</h4>
                   <p className="text-muted-foreground mb-4">
-                    Буде їжа. Детальніше потім
+                    Заради забезпечення функціонування Республіки, усі жителі зобов'язані заздалегідь сплатити податковий збір. 
+                    Цього року його визначено на рівні 2000 грн. Збір покриває:
+                    <br />
+                    1. Харчування впродовж трьох днів проведення Фестивалю.
+                    <br />
+                    2. Оплату в'їзду на територію Нацпарку (150 гривень з людини за три дні та 30 гривень з автомобіля).
+                    <br />
+                    3. Організацію розважальних заходів на час проведення Фестивалю та забезпечення функціонування Республіки.
                   </p>
                 </div>
               </div>
@@ -218,10 +229,42 @@ const NextFestival = () => {
             </CardHeader>
             <CardContent>
               <p className="text-lg mb-4">
-                <strong>Перелік майбутніх жителів буде поповнюватися тут</strong>
+                <strong>Попередньо підтверджені жителі Республіки у 2026-му році:</strong>
               </p>
               <p className="text-muted-foreground mb-6">
-                Набір жителів ще не розпочався
+                1. Назар Задорожний
+                <br />
+                2. Наталя Нижник
+                <br />
+                3. Юрій Кравцов
+                <br />
+                4. Юрій Бокало
+                <br />
+                5. Ірина Бокало
+                <br />
+                6. Назарій Вовків
+                <br />
+                7. Богдан Гнатків
+                <br />
+                8. Ольга Сопотницька
+                <br />
+                9. Марія Матківська
+                <br />
+                10. Богдан Пагута
+                <br />
+                11. Вероніка Микитин
+                <br />
+                12. Вікторія Рудик
+                <br />
+                13. Анна Лацина
+                <br />
+                14. Наталія Криванчик
+                <br />
+                15. Ігор Лютик
+                <br />
+                16. Юрій Демко
+                <br />
+                17. Ярина Демко
               </p>
             </CardContent>
           </Card>

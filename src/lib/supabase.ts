@@ -62,7 +62,8 @@ export const AUTHORIZED_USERS = [
     citStatus: "Дійсне",
     attendance: "2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
     internship: "Непотрібне",
-    maritalStatus: "МЙ0006; 2025-07-26"
+    maritalStatus: "МЙ0006; 2025-07-26",
+    skinnyDip: "Yes"
   },
   { 
     surname: "ВОВКІВ", 
@@ -75,7 +76,8 @@ export const AUTHORIZED_USERS = [
     citStatus: "Дійсне",
     attendance: "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
     internship: "Непотрібне",
-    president: "2024"
+    president: "2024",
+    skinnyDip: "Yes"
   },
   { 
     surname: "АНДРУШКО", 
@@ -101,7 +103,8 @@ export const AUTHORIZED_USERS = [
     attendance: "2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
     internship: "Непотрібне",
     maritalStatus: "ЛБ0002; 2021-07-23",
-    president: "2023"
+    president: "2023",
+    skinnyDip: "Yes"
   },
   { 
     surname: "БОКАЛО", 
@@ -477,7 +480,7 @@ export const INFORMATIONAL_USERS = [
   {
     surname: "ЛЮТИК",
     firstName: "Ігор",
-    birthDate: "1900-01-01",
+    birthDate: "1997-11-11",
     status: "---",
     citStatus: "Недійсне",
     attendance: "2024",

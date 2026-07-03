@@ -315,14 +315,15 @@ export const QuizSection = () => {
 
       {/* Quiz Modal */}
       <Dialog open={isQuizOpen} onOpenChange={closeQuiz}>
-        <DialogContent className="bg-gradient-to-br from-festival-blue to-festival-blue/80 border-white/20 max-w-2xl">
-          <DialogHeader>
-            <DialogTitle className="text-white text-xl">
-              Квіз про Республіку Вейву
-            </DialogTitle>
-          </DialogHeader>
+        <DialogContent className="bg-gradient-to-br from-festival-blue to-festival-blue/80 border-white/20 max-w-2xl max-h-[95vh] overflow-y-auto p-0">
+          <div className="p-6">
+            <DialogHeader>
+              <DialogTitle className="text-white text-xl">
+                Квіз про Республіку Вейву
+              </DialogTitle>
+            </DialogHeader>
 
-          {!showResults ? (
+            {!showResults ? (
             <div className="space-y-6">
               <div className="flex justify-between items-center">
                 <Badge variant="outline" className="border-white/30 text-white whitespace-nowrap">
@@ -490,6 +491,7 @@ export const QuizSection = () => {
               </div>
             </div>
           )}
+          </div>
         </DialogContent>
       </Dialog>
     </>
