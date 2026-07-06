@@ -552,7 +552,7 @@ export const INFORMATIONAL_USERS = [
   {
     surname: "МИКИТИН",
     firstName: "Вероніка",
-    birthDate: "1900-01-01",
+    birthDate: "2004-06-22",
     status: "---",
     citStatus: "Недійсне",
     attendance: "2025",
@@ -561,7 +561,7 @@ export const INFORMATIONAL_USERS = [
   {
     surname: "РУДИК",
     firstName: "Вікторія",
-    birthDate: "1900-01-01",
+    birthDate: "2003-08-20",
     status: "---",
     citStatus: "Недійсне",
     attendance: "2025",
