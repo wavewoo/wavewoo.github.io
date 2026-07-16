@@ -137,7 +137,7 @@ const NextFestival = () => {
                     className="w-full h-full rounded-md border"
                     loading="lazy"
                     allowFullScreen
-                    src="https://maps.google.com/maps?q=49.1138573,23.2799233&z=15&output=embed"
+                    src="https://maps.google.com/maps?q=49.120149,23.277057&z=15&output=embed"
                   ></iframe>
                 </div>
               </CardContent>
@@ -267,6 +267,8 @@ const NextFestival = () => {
                 14. Вікторія Рудик
                 <br />
                 15. Олег Ложинський
+                <br />
+                16. Роман Олеш
               </p>
             </CardContent>
           </Card>
