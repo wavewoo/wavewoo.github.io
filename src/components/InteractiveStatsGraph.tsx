@@ -6,12 +6,12 @@ const InteractiveStatsGraph = () => {
 
   // Sample data for three lines (you can customize these)
   const data = {
-    total: [7, 6, 8, 7, 10, 12, 8, 16, 19, 22, 26, 21],
-    male: [4, 3, 4, 4, 6, 7, 5, 11, 10, 12, 11, 9],
-    female: [3, 3, 4, 3, 4, 5, 3, 5, 9, 10, 15, 12],
+    total: [7, 6, 8, 7, 10, 12, 8, 16, 19, 22, 26, 21, 16],
+    male: [4, 3, 4, 4, 6, 7, 5, 11, 10, 12, 11, 9, 8],
+    female: [3, 3, 4, 3, 4, 5, 3, 5, 9, 10, 15, 12, 8],
   };
 
-  const years = Array.from({ length: 12 }, (_, i) => 2014 + i);
+  const years = Array.from({ length: 13 }, (_, i) => 2014 + i);
   const maxTotal = Math.max(...data.total);
   const maxMale = Math.max(...data.male);
   const maxFemale = Math.max(...data.female);

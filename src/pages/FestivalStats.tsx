@@ -58,6 +58,9 @@ const getRandomImageForYear = (year: number): string => {
       { candidate: "Світлана Петрук", votes: 8, party: "Фінансів", color: "#8B5CF6" },
       { candidate: "НЕДІЙСНІ ГОЛОСИ", votes: 1, party: "НЕДІЙСНІ ГОЛОСИ", color: "#10B981" },
     ],
+    2026: [
+      { candidate: "Наталія Нижник", votes: 16, party: "Господарства", color: "#F97316" }
+    ],
   };
 
   // Content for each year - you can edit these individually
@@ -212,6 +215,20 @@ const getRandomImageForYear = (year: number): string => {
           було визнано недійсним комісією з підрахунку голосів.</li>
         </ul>
       `
+    },
+    2026: {
+      image: getRandomImageForYear(2026),
+      title: "Детальна інформація про фестиваль: 2026",
+      content: "<span style='font-size: 1.5em; font-weight: bold;'>Дати фестивалю: </span><span style='font-size: 1.5em; font-weight: bold; color: red; text-decoration: underline;'>17-19 ЛИПНЯ</span>",
+      details: `
+        <span style='font-size: 1.5em; font-weight: bold;'>Особливості фестивалю: </span> <br /><br />
+        <ul style="padding-left: 1.5em; list-style-type: disc;">
+          <li>На цьому Фестивалі вперше за історію Республіки у Президенти балотувався лише один кандидат. Як результат, вибори не проводилися 
+          і кандидат автоматично став Президентом.</li>
+          <li>Курс популістів-консерваторів продовжився, спричинивши подальше падіння кількості жителів.</li>
+          <li>Розважальна програма цього фестивалю була більш чільною - було проведено перший в історії Республіки акустичний вечір.</li>
+        </ul>
+      `
     }
   };
 
@@ -307,7 +324,7 @@ const getRandomImageForYear = (year: number): string => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto">
-            {Array.from({ length: 12 }, (_, index) => {
+            {Array.from({ length: 13 }, (_, index) => {
               const year = 2014 + index;
               return (
                 <Button

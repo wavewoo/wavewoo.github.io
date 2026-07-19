@@ -6,12 +6,12 @@ const InteractiveStatsGraph1 = () => {
 
   // Sample data for three lines (you can customize these)
   const data = {
-    citizens: [7, 7, 8, 5, 9, 12, 12, 12, 14, 21, 19, 26],
-    ptp: [0, 2, 4, 8, 5, 2, 1, 5, 10, 8, 18, 13],
-    frozen: [0, 0, 0, 3, 4, 4, 4, 2, 1, 0, 5, 6],
+    citizens: [7, 7, 8, 5, 9, 12, 12, 12, 14, 21, 19, 26, 24],
+    ptp: [0, 2, 4, 8, 5, 2, 1, 5, 10, 8, 18, 13, 10],
+    frozen: [0, 0, 0, 3, 4, 4, 4, 2, 1, 0, 5, 6, 9],
   };
 
-  const years = Array.from({ length: 12 }, (_, i) => 2014 + i);
+  const years = Array.from({ length: 13 }, (_, i) => 2014 + i);
   const maxCitizens = Math.max(...data.citizens);
   const maxPtp = Math.max(...data.ptp);
   const maxFrozen = Math.max(...data.frozen);

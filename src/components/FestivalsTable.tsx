@@ -16,7 +16,8 @@ const FestivalsTable = () => {
     { year: "2022", dates: "29-31 липня", location: "N 49.1138573, E 23.2799233", attendees: "19" },
     { year: "2023", dates: "14-16 липня", location: "N 49.1201488, E 23.2770571", attendees: "22" },
     { year: "2024", dates: "19-21 липня", location: "N 49.1138573, E 23.2799233", attendees: "26" },
-    { year: "2025", dates: "25-27 липня", location: "N 49.125557, E 23.271227", attendees: "21" },     
+    { year: "2025", dates: "25-27 липня", location: "N 49.125557, E 23.271227", attendees: "21" },
+    { year: "2026", dates: "17-19 липня", location: "N 49.120148, E 23.277057", attendees: "16" },      
   ];
 
   return (
