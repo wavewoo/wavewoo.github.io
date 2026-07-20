@@ -94,11 +94,11 @@ const FestivalDetails = () => {
                 <h3 className="text-3xl font-bold mb-4">Впродовж Фестивалів</h3>
                 <div className="grid md:grid-cols-4 gap-6">
                   <div>
-                    <div className="text-4xl font-bold text-festival-yellow">55</div>
+                    <div className="text-4xl font-bold text-festival-yellow">50+</div>
                     <div className="text-lg">Унікальних відвідувачів</div>
                   </div>
                   <div>
-                    <div className="text-4xl font-bold text-festival-yellow">13</div>
+                    <div className="text-4xl font-bold text-festival-yellow">12</div>
                     <div className="text-lg">Років</div>
                   </div>
                   <div>
@@ -106,7 +106,7 @@ const FestivalDetails = () => {
                     <div className="text-lg">Активностей</div>
                   </div>
                   <div>
-                    <div className="text-4xl font-bold text-festival-yellow">37</div>
+                    <div className="text-4xl font-bold text-festival-yellow">34</div>
                     <div className="text-lg">Дні чілу</div>
                   </div>
                 </div>

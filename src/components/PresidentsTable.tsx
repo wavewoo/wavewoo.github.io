@@ -26,9 +26,6 @@ const PresidentsTable = () => {
         if (user.surname === "КІНДРАТІВ" && user.president === "2022") {
           achievements = "Не прибула на фестиваль правління";
         }
-        if (user.surname === "ЛІЩУК" && user.president === "2026") {
-          achievements = "Не прибула на фестиваль правління";
-        }
         
         presidents.push({
           period: user.president,

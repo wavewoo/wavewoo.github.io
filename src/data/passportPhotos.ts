@@ -146,16 +146,6 @@ const passportPhotos: PassportPhoto[] = [
     passport: "МЙ0004А",
     photoUrl: "/passportphotos/МЙ0004А.png",
     altText: "Паспортне фото"
-  },
-  {
-    passport: "МЙ0022",
-    photoUrl: "/passportphotos/МЙ0022.png",
-    altText: "Паспортне фото"
-  },
-  {
-    passport: "МЙ0023",
-    photoUrl: "/passportphotos/МЙ0023.png",
-    altText: "Паспортне фото"
   }
 ];
 

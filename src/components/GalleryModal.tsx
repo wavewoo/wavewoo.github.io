@@ -107,24 +107,14 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
 
   const handleAllPhotosAccess = () => {
     if (isAuthenticated) {
+      // User is authenticated, open the Google Drive link
       window.open(
         "https://drive.google.com/drive/folders/1ExoCiVnXA2f50CPw060moGFx7kC3sBJw?usp=drive_link",
         "_blank",
         "noopener,noreferrer"
       );
     } else {
-      navigate("/auth");
-    }
-  };
-
-  const handleVideosAccess = () => {
-    if (isAuthenticated) {
-      window.open(
-        "https://www.youtube.com/playlist?list=PLfVMBNbV73Uc",
-        "_blank",
-        "noopener,noreferrer"
-      );
-    } else {
+      // User is not authenticated, redirect to auth page
       navigate("/auth");
     }
   };
@@ -166,8 +156,7 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                 <p className="text-sm text-muted-foreground">
                   Клікніть на фото для перегляду у повному розмірі
                 </p>
-
-              <div className="mt-6 flex justify-center gap-6">  
+                
                 <Button 
                   variant="outline" 
                   className="w-full max-w-xs"
@@ -175,16 +164,6 @@ const GalleryModal = ({ year, children }: GalleryModalProps) => {
                 >
                   Перейти до всіх фотографій
                 </Button>
-              {/*
-                <Button
-                  variant="outline"
-                  className="w-full max-w-xs"
-                  onClick={handleVideosAccess}
-                >
-                  Перейти до відео на YouTube
-                </Button>
-              */}
-              </div>
               </div>
             </>
           ) : (

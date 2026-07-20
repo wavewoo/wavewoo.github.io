@@ -126,18 +126,18 @@ import festival2025_11 from "@/assets/gallery/2025/11.jpg";
 import festival2025_12 from "@/assets/gallery/2025/12.jpg";
 
 // 2026 photos
-import festival2026_1 from "@/assets/gallery/2026/1.jpg";
-import festival2026_2 from "@/assets/gallery/2026/2.jpg";
-import festival2026_3 from "@/assets/gallery/2026/3.jpg";
-import festival2026_4 from "@/assets/gallery/2026/4.jpg";
-import festival2026_5 from "@/assets/gallery/2026/5.jpg";
-import festival2026_6 from "@/assets/gallery/2026/6.jpg";
-import festival2026_7 from "@/assets/gallery/2026/7.jpg";
-import festival2026_8 from "@/assets/gallery/2026/8.jpg";
-import festival2026_9 from "@/assets/gallery/2026/9.jpg";
-import festival2026_10 from "@/assets/gallery/2026/10.jpg";
-import festival2026_11 from "@/assets/gallery/2026/11.jpg";
-import festival2026_12 from "@/assets/gallery/2026/12.jpg";
+//import festival2026_1 from "@/assets/gallery/2026/1.jpg";
+//import festival2026_2 from "@/assets/gallery/2026/2.jpg";
+//import festival2026_3 from "@/assets/gallery/2026/3.jpg";
+//import festival2026_4 from "@/assets/gallery/2026/4.jpg";
+//import festival2026_5 from "@/assets/gallery/2026/5.jpg";
+//import festival2026_6 from "@/assets/gallery/2026/6.jpg";
+//import festival2026_7 from "@/assets/gallery/2026/7.jpg";
+//import festival2026_8 from "@/assets/gallery/2026/8.jpg";
+//import festival2026_9 from "@/assets/gallery/2026/9.jpg";
+//import festival2026_10 from "@/assets/gallery/2026/10.jpg";
+//import festival2026_11 from "@/assets/gallery/2026/11.jpg";
+//import festival2026_12 from "@/assets/gallery/2026/12.jpg";
 
 export interface GalleryPhoto {
   id: number;
@@ -277,20 +277,20 @@ export const galleryData: Record<number, GalleryPhoto[]> = {
     { id: 11, src: festival2025_11, alt: "Вечірня атмосфера" },
     { id: 12, src: festival2025_12, alt: "Жителі Республіки"}
   ],
-  2026: [
-    { id: 1, src: festival2026_1, alt: "Чіл-зона" },
-    { id: 2, src: festival2026_2, alt: "Ритуальні купання" },
-    { id: 3, src: festival2026_3, alt: "Дари Артеліса" },
-    { id: 4, src: festival2026_4, alt: "Акустичний вечір" },
-    { id: 5, src: festival2026_5, alt: "Дощовий і драбинний чоловіки" },
-    { id: 6, src: festival2026_6, alt: "Продовольче забезпечення" },
-    { id: 7, src: festival2026_7, alt: "Прикордонний контроль" },
-    { id: 8, src: festival2026_8, alt: "Арт-інсталяція \"Дуйчик\"" },
-    { id: 9, src: festival2026_9, alt: "Міністерство ТаТиШо" },
-    { id: 10, src: festival2026_10, alt: "Арт-перфоманс \"Посади дерево\"" },
-    { id: 11, src: festival2026_11, alt: "Учасники Фестивалю" },
-    { id: 12, src: festival2026_12, alt: "Воз'єднання з началом"}
-  ],
+//  2026: [
+//  { id: 1, src: festival2026_1, alt: "1" },
+//  { id: 2, src: festival2026_2, alt: "2" },
+//  { id: 3, src: festival2026_3, alt: "3" },
+//  { id: 4, src: festival2026_4, alt: "4" },
+//  { id: 5, src: festival2026_5, alt: "5" },
+//  { id: 6, src: festival2026_6, alt: "6" },
+//  { id: 7, src: festival2026_7, alt: "7" },
+//  { id: 8, src: festival2026_8, alt: "8" },
+//  { id: 9, src: festival2026_9, alt: "9" },
+//  { id: 10, src: festival2026_10, alt: "10" },
+//  { id: 11, src: festival2026_11, alt: "11" },
+//  { id: 12, src: festival2026_12, alt: "12"}
+//  ],
 };
 
 // Helper function to get photos for a specific year

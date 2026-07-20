@@ -1,0 +1,48 @@
+{
+  "name": "Республіка Вейву - Фестиваль",
+  "short_name": "Вейву",
+  "description": "Офіційний сайт Республіки Вейву з інформацією про фестивалі та громадянство",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "categories": ["entertainment", "social", "government"],
+  "lang": "uk",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "coat-of-arms.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Фестивалі",
+      "short_name": "Фестивалі",
+      "description": "Переглянути інформацію про фестивалі",
+      "url": "/festival-details",
+      "icons": [{ "src": "coat-of-arms.jpg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Особистий кабінет",
+      "short_name": "Кабінет",
+      "description": "Перейти до особистого кабінету",
+      "url": "/cabinet",
+      "icons": [{ "src": "coat-of-arms.jpg", "sizes": "96x96" }]
+    }
+  ]
+}
